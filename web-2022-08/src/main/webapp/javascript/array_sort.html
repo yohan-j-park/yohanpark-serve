@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_sort.html</title>
+</head>
+<body>
+<script>
+
+// selected.sort / sort함수는 배열에 있는 값을 모두 문자취급하여 정렬함.
+let s=[9,8,4,2,1];
+console.log(s);
+for(i=0; i<s.length-1; i++){  // 기준점을 잡는 작업 
+	min=s[i]; // 최소값.
+	for(j=i+1 ; j<s.length; j++){ 
+		if(s[i]>s[j]){		//swap logic
+			min = s[j];
+			s[j]= s[i];
+			s[i] = min;
+		}
+	} console.log(s);
+}
+/*
+ 디센딩 
+let s=[1,2,4,8,9];
+console.log(s);
+for(i=0; i<s.length-1; i++){
+	max=s[i]; // 최대값.
+	for(j=i+1; j<s.length; j++){
+		if(s[i]<s[j]){
+			max = s[j];
+			s[j] = s[i];
+			s[i] = max;
+		}
+	}console.log(s);
+}
+*/
+</script>
+</body>
+</html>

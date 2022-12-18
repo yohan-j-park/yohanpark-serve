@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+img{
+	width:100%;
+}
+
+.cost_modify_box{
+   position: absolute;
+    top: 48%;
+    left: 72%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%,-50%);
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    color:white;
+}
+.cost_modify_box h2{
+   margin: 0 0 20px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.cost_modify_box .user-box{
+    position: relative;
+}
+.cost_modify_box .user-box input{
+    width: 100%;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 26px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.cost_modify_box form a{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    /* margin-top: 30px; */
+    letter-spacing: 4px;
+    /* margin:10px 10px; */
+}
+
+.cost_modify_box a:hover{
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e2ff,
+                0 0 20px #03e2ff,
+                0 0 40px #03e2ff,
+                0 0 80px #03e2ff;
+}
+.cost_modify_box a span{
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+}
+.cost_modify_box a span:nth-child(1){
+    top: 0;
+    left: -100%;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1{
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+.cost_modify_box a span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s;
+}
+@keyframes btn-anim2{
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+.cost_modify_box a span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s;
+}
+
+@keyframes btn-anim3{
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+.cost_modify_box a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s;
+}
+
+@keyframes btn-anim4{
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100% ;
+    }
+}
+.cc1{
+   margin:6px 45px 7px 0;
+
+}
+.cc2{
+   margin:5px 15px 0 0;
+   
+}
+
+#pr_name{
+   color:#03e2ff;
+}
+#robot_cost{
+   color:#03e2ff;
+}
+#profit_rate{
+   color:#03e2ff;
+}
+#btnBox{
+   display: block;
+   text-align:center;
+}
+
+
+
+/* 
+.back-video{
+   width:100%;
+   position:absolute;
+
+   z-index:-1;
+   -ms-overflow-style: none;
+}
+
+.cost_modify_body{
+   width:100%;
+   white-space:nowrap;
+   position:relative;
+   -ms-overflow-style: none;
+}
+
+#table_wrapper{
+   text-align: center;
+   position:absolute;
+   margin-top: 50px;
+   height: 550px;
+   padding:10px;
+   background-color:black; 
+   background-image: url("../images/cost_list.jpg");
+   color:#3dcbde;
+   width:60%;
+   margin-left:23%;
+}
+
+h2{
+   text-align:center;
+}
+
+
+
+
+span{
+   display: inline-block;
+   text-align: right;
+}
+
+#cost_modify_table1{
+   margin-bottom: 10px;
+}
+
+
+   
+cost_modify_table{
+   float: right;
+}
+   
+#cost_modify_table2{
+   margin-bottom: 10px;
+}   
+   
+ */

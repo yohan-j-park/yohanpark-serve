@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+#frame{
+	background-color:#fff;
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	width:1200px;
+	min-height:360px;	
+	margin:30px auto;
+	border:5px solid #409167;
+	box-shadow:3px 3px 5px #999;
+	background-color:#25d165;
+	padding:20px;
+	border-radius:15px;
+	position:relative;
+	overflow:auto;
+}
+#left{
+	width: 350px;
+	float: left;
+	margin:10px;
+	padding:10px;
+	background-color:#fff;
+	border:3px solid #409167;
+	border-radius:10px;
+}
+#left>h2{
+	text-align:center;
+}
+#left span{
+	display:inline-block;
+	text-align:right;
+	width:80px;
+}
+#left input[name=serial]{
+	width:150px;
+}
+#left input[name=id]{
+	width:150px;
+}
+#left input[name=subject]{
+	width:150px;
+}
+#left input[name=score]{
+	width:150px;
+}
+#left input[name=btnOutput]{
+	width:140px;
+	height:40px;
+	margin-top:10px;
+	font-size:20px;
+
+}
+#left input[name=findSerial]{
+	margin-left:6px;
+}
+#right{
+	float:right;
+	width:600px;
+	background-color:#fff;
+	border:3px solid #409167;
+	border-radius:10px;
+	margin-top:7px;
+	margin-right:3px;
+}
+#right>.title{
+	width:500px;
+	background-color:#4252ac;
+	color:#fff;
+	padding:2px 30px;
+	border-radius:5px;
+	text-align:left;
+	margin:10px auto;
+}
+ /* #right .item:nth-child(1){
+	height:0px;
+	margin:0;
+	padding:0;
+}
+*/
+
+#right .item{
+	margin:10px 20px;
+	padding:2px 30px;
+}
+#right .item:hover{
+	cursor:pointer;
+	background-color:#ddd;
+}
+#right span{
+	display:inline-block;
+	text-align:center;
+}
+#right .items{
+	height:173px;
+	overflow:auto;
+}
+#right .serial{width:100px;}
+#right .id{width:100px;}
+#right .subject{width:100px;}
+#right .score{width:100px;}
+
+#right>h2{
+	text-align:center;
+}

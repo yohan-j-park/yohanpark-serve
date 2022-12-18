@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_map.html</title>
+</head>
+<body>
+<script>
+//map은 새로운 구조를 만들 수 있다.
+let arry=[1.2, 0.5, 45.9, 34.01]; // 임의의 실수
+let newArry = arry.map(function(value){ //map() 메서드는 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환합니다.
+	return Math.ceil(value); // value 값을 절상함. (value값보다 크거나 같은 최소 정수)
+});
+console.log('arry:', arry);
+console.log('newArry:', newArry);
+
+let newArry2 = arry.map((value)=>(Math.ceil(value))  );
+console.log('newArry2:', newArry2);
+</script>
+</body>
+</html>

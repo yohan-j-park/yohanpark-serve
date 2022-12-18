@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>win_sub.html</title>
+</head>
+<body>
+<input type='text' id='target' placeholder='송신 된 자료가 표시됨'/>
+<input type='button' value='수신' id='btnReceive'/>
+<input type='button' value='송신' id='btnSend'/>
+
+<script>
+let btnReceive = document.querySelector('#btnReceive');
+let btnSend = document.querySelector('#btnSend');
+btnReceive.addEventListener('click',function(){
+	let target = document.querySelector('#target');
+	let source = opener.document.querySelector('#text1');
+	
+	target.value = source.value;
+});
+
+btnSend.addEventListener('click',function(){
+	let source = document.querySelector('#target');
+	let target = window.opener.document.querySelector('#text2');
+	target.value = source.value;
+});
+
+</script>
+</body>
+</html>

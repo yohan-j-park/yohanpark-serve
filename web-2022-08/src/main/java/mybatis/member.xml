@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<select id="totSize" parameterType="String" resultType="Integer">
+		select count(id) from member 
+		where id= #{_parameter}
+		or	  phone like '%${_parameter}%'
+		or	  name like '%${_parameter}%'
+	</select>
+	
+	<select id="select" parameterType="member.MybatisPageVo" resultType="member.MemberVo">
+		select * from member 
+		where id= #{findStr} 
+		or	  phone like '%${findStr}%' 
+		or	  name like '%${findStr}%' 
+		limit #{startNo}, #{listSize}
+	</select>
+	
+	<select id="view" parameterType="String" resultType="member.MemberVo">
+		select id, name, gender, phone, oriFile, sysFile, date_format(mdate, '%Y-%m-%d') as mdate
+		from member where id = #{id} 
+
+	</select>
+	
+	<insert id="insert" parameterType="member.MemberVo">
+		insert into member(id, name, gender, phone, mdate, oriFile, sysFile)
+		values(#{id}, #{name}, #{gender}, #{phone}, #{mdate}, #{oriFile}, #{sysFile} )
+	</insert>
+	
+	<update id="update" parameterType="member.MemberVo">
+		update member set name=#{name}, gender=#{gender}, phone=#{phone}, mdate=#{mdate}
+		<if test="sysFile != '' ">
+			,sysFile=#{sysFile} ,oriFile=#{oriFile}
+		</if>	  
+		where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from member where id=#{_parameter}
+	</delete>
+</mapper>

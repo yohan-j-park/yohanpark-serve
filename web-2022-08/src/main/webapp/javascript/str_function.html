@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>str_function.html</title>
+</head>
+<body>
+<div>대표적인 문자열 함수</div>
+<script>
+let str='abcabc123가나다';
+console.log(str.substr(9));//가나다
+console.log(str.substr(6,3));//123
+console.log(str.toUpperCase()); //ABCABC123가나다
+console.log(str.indexOf('1')); // 6
+console.log(str.lastIndexOf('c')); // 5,맨 뒤에서붙어 처음 c인 것을 찾아서 왼쪽에서부터 몇번째인지 표시
+console.log(str.charAt(9)); //가, str에 있는 문자(숫자) 중 9번째에 있는 것을 표시
+
+let ary = str.split('c') // ab, ab, 123가나다
+console.log(ary);
+
+</script>
+</body>
+</html>

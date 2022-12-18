@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>querySelector | querySelectorAll</h2>
+<div id='div1'></div>
+<div class='cls'></div>
+<div class='cls'></div>
+<div class='cls'></div>
+<script>
+  let div = document.querySelector('#div1');
+  div.innerHTML = 'hi...querySelector';
+  let cls = document.querySelectorAll('.cls');
+  for(let i in cls){
+    let ele = cls[i];
+    ele.innerHTML = 'cls nth : ' + i;
+  }
+</script>
+</body>
+</html>

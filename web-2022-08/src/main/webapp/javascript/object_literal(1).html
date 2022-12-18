@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>object_literal(1).html</title>
+</head>
+<body>
+<script>
+let obj1 = {};
+obj1.x = 100;
+obj1.y = 200;
+obj1.sum = obj1.x + obj1.y;
+
+console.log('obj1.x=',	 obj1.x);
+console.log('obj1.y=',	 obj1.y);
+console.log('obj1.sum=', obj1.sum);
+console.log('obj1=',	 obj1);
+
+//리터럴 객체에 멤버함수(메서드)추가
+let obj2={};
+obj2.name='hong gil dong';
+obj2.age=18;
+obj2.output = function(){
+	let str = `name : ${this.name}, age : ${this.age}`;
+	console.log(str);
+}
+
+
+//setter들을 통해 객체 안에 값을 넣기(수량, 단가 ->금액)
+let obj3 = {};
+obj3.setEa = function(ea){  //obj3안에 setEa라는 변수를 만듦
+	this.ea = ea;
+}
+obj3.setPrice = function(pr){
+	this.price = pr;
+}
+obj3.getEa = function(){return this.ea; }
+obj3.getPrice = function(){return this.price; }
+obj3.output = function(){
+	console.log('ea', this.ea );
+	console.log('price', this.price);
+	console.log('amt', (this.ea*this.price) );
+}
+let obj4 = {};
+obj4.setea = function(ea){
+	obj4.ea=ea;
+}
+obj4.setprice = function(price){
+	obj4.price=price;
+}
+obj4.output = function(){
+	console.log('ea', obj4.sea);
+	console.log('price', obj4.price);
+	console.log('price', (obj4.ea*obj4.price));
+}
+obj4.setea(100);
+obj4.setprice(100);
+obj4.output();
+console.log(obj)
+console.log('-----------------');
+obj3.setEa(100);
+obj3.setPrice(1234);
+obj3.output();
+console.log(obj3.getEa());
+console.log(obj3.getPrice());
+console.log(obj3.ea);
+console.log(obj3.price);
+</script> 
+</body>
+</html>

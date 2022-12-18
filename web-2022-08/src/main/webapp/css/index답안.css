@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+main{
+	min-width:1500px;
+	margin:20px auto;
+	border:3px solid #aaa;
+}
+
+.login{
+	border:1px solid #999;
+	text-align:right;
+}
+header{
+	background-color:#ddd;
+	height:120px;
+	position:relative;
+	background-image:url(../images/농담곰배경.jpg);
+	background-repeat:no-repeat;
+	background-size:100% 200px;
+	background-position: center center;
+}
+header>nav{
+	background-color:#22B14C; 
+	padding:5px;
+	width:550px;
+	text-align:center;
+	position:absolute;
+	right:5px;
+	bottom:5px;
+}
+nav>a{
+	text-decoration:none;
+	color:#fff;
+	padding:2px 5px;
+	position:absoulue;
+	width:100%;
+	height:100%;
+	transition: background-color 1s,
+				margin-top 1s,
+				transform 1s;
+}
+nav a:hover{
+	color:#22B14C;
+	background-color:#fff;
+	border-radius:6px;
+	transform: scale(2,2);	
+}
+.content{
+	min-height:380px;
+	min-width:1500px;
+}
+footer{
+	
+	height:120px;
+	background-color:#ccc;
+}

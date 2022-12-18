@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>declare.html</title>
+
+<script>
+let a= 10*20; /* a라는 변수에 10*20이라는 값을 대입하라는 명령어 */
+alert(a); /* 페이지가 시작할 때 a 값을 창에 띄워서 알려줌 */
+
+</script>
+<script defer src='declare.js'>
+/* defer= body값이 다 실행되기 전까지 실행하지 마라. */
+</script> 
+</head>
+<body>
+<xmp>
+1. <script/> 태그를 사용하여 자바 스크립트를 작성하는 방법
+2. 태그에 직접 스크립트를 작성하는 방법(비추), but 이벤트처리는 매우 많이 사용함
+3. 외부에 스크립트 파일을 작성하 후 가져와 사용하는 방법.
+</xmp>
+<div onclick='func()'>
+	이곳을 클릭하세요
+</div>
+<script>
+function func(){
+	a=10;
+	b=20;
+	c=a+b;
+	alert(c);
+}
+</script>
+
+<div id='here'></div>
+</body>
+</html>

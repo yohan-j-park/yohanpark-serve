@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>if(4).html</title>
+</head>
+<body>
+<p>3개의 점수를 입력하세요</p>
+<span>국어:</span>
+<input type='text' id='kor' size='3' value='90'/>
+<br/>
+<span>영어:</span>
+<input type='text' id='eng' size='3' value='80'/>
+<br/>
+<span>수학:</span>
+<input type='text' id='mat' size='3' value='100'/>
+<br/>
+<span></span>
+<input type='button' value='계산' id='btn'/>
+<br/>
+<span>학점</span>
+<output id='grade'></output>
+<script>
+/*
+if( 조건1 ){
+	조건1이 참인 경우;
+}
+else if(조건1이 거짓일 경우 조건2 ){
+	조건 2가 참인 경우;
+}
+else if(조건2가 거짓일 경우 조건3){
+	조건 3이 참인 경우;
+}
+...
+else if(n번째 조건이 거짓일 경우 조건n+1){
+	n+1번째 조건이 참인 경우;
+}
+else{
+	마지막 조건이 거짓인 경우;
+} 
+*/
+// 3개의 성적을 임의의 변수에 대입한 후 총점과 평균을 구하고 평균에 따라 학점을 구하여 console에 출력하시오
+
+let kor = document.querySelector('#kor');
+let eng = document.querySelector('#eng');
+let mat = document.querySelector('#mat');
+let btn = document.querySelector('#btn');
+let grade2 = document.querySelector('#grade');
+
+btn.onclick=function(){	
+let a=Number(kor.value);  //Number함수: 문자형의 숫자데이터를 숫자데이터로 변환
+let b=Number(eng.value);
+let c=Number(mat.value);
+let tot=a+b+c;
+let ave=tot/3.0;
+let grade;
+if(ave>=90){
+	grade='A';
+}
+else if(ave>=80){
+	grade='B';
+}
+else if(ave>=70){
+	grade='C';
+}
+else if(ave>=60){
+	grade='D';	
+}
+else if(ave>=50){
+	grade='E';
+}
+else{
+	grade='F';
+}
+console.log('국어과목:',kor);
+console.log('영어과목:',eng);
+console.log('수학과목:',mat);
+console.log('총 점:',tot);
+console.log('평 균:',ave);
+console.log('등 급:',grade);
+grade2.innerHTML = grade;
+}
+
+</script>
+</body>
+</html>

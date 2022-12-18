@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../Desktop/visual Studio Code"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "web-2022-08"
+	}
+}

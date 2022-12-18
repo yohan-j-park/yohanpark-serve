@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>linear-gradient.html</title>
+<style>
+	div{
+		border: 3px solid black;
+		width: 250px;
+		height: 40px;
+		margin: 20px;
+		line-height: 40px;
+		text-align: center;
+		box-shadow: 3px 3px 1px gray;
+	}
+	div.a{
+	background: linear-gradient(45deg, #f00 0%, #00f 100%);
+	}
+	div.b{
+	background: linear-gradient(0deg, #f00 0%, #00f 100%);
+	}
+	div.c{
+	background: linear-gradient(90deg, #f00 0%, #00f 100%);
+	}
+	div.d{
+	background: linear-gradient(90deg,
+								#ff0 0%,
+								#00f 25%,
+								#f00 50%,
+								#00f 75%,
+								#ff0 100%);
+	}
+</style>
+</head>
+<body>
+<div class='a'>대각선 방향</div>
+<div class='b'>수직 방향</div>
+<div class='c'>수평 방향</div>
+<div class='d'>다중 색상</div>
+</body>
+</html>

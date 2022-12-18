@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>logic_test</title>
+</head>
+<body>
+<script>
+//[응용1]: 몸무게와 키를 임의의 변수에 대입한 후 키가 200이상이거나 몸무게가 150이상이면 TRUE를 출력하시오.
+let t=300;
+let w=200;
+let x = (t>=200) || (w>=150);
+
+console.log(x);
+
+
+/*[응용2]: 국어,영어점수를 임의의 변수에 대입한 후 평균을 구하고, 국어, 영어 점수중 하나가 40미만이거나
+		  평균이 60미만일 때 true를 출력하시오. */ 
+ 
+let a=50;
+let b=50;
+let c=(a+b)/2;
+ 
+let d = (a<40) || (b<40) || (c<60);
+ 
+console.log(d);
+		  
+
+/* [응용3]: 회원가입 여부가 변수 g에 저장되어 있고, 구매금액이 amt에 저장되어 있을 때,
+ 		  회원이고 구매금액이 10000원 이상이면 true를 출력하시오. */
+
+let g=true;      // true=가입, false=미가입
+let amt=20000;
+
+r= (g) && (amt>=10000);
+
+console.log(r);
+ 		  
+ 		  
+</script>
+
+</body>
+</html>

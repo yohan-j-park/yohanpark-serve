@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>object_new.html</title>
+</head>
+<body>
+<script>
+// Object를 사용한 객체선언
+let obj1 = new Object(); 
+obj1.x = 100;  //obj1의 멤버 x에 100을 넣는다.
+obj1.y = 200;
+obj1.sum = function(){
+	this.s = this.x + this.y; //obj1의 멤버 sum은 s라는 멤버에 x값과 y값을 더한 값을 넣는다.
+	return this.s;
+}
+obj1.avg = function(){
+	this.a = this.s/2 //obj1의 멤버 avg는 a라는 멤버에 s의 값을 2로 나눈 값을 넣는다.
+	return this.a;
+}
+console.log('obj1.sum : ', obj1.sum());
+console.log('obj1.avg : ', obj1.avg());
+console.log('obj1.s : ', obj1.s);
+console.log('obj1.a : ', obj1.a);
+console.log(obj1.sum); 
+
+obj1.x = 50;
+obj1.y = 20;
+console.log('obj1.sum : ', obj1.sum());
+console.log('obj1.avg : ', obj1.avg());
+console.log('obj1.s : ', obj1.s);
+console.log('obj1.a : ', obj1.a);
+
+</script>
+</body>
+</html>

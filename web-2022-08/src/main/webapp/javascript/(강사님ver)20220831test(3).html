@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>20220831test(3).html</title>
+
+</head>
+<body>
+<form name='frm'>
+	<span>아이디</span>
+	<input type='text' name='id' value='a001'/><br/>
+	<span>암호</span>
+	<input type='password' name='pwd'/><br/>
+	<input type='button' value='확인' name='btn'/>
+</form>
+<div id='result'></div>
+<script>
+let frm = document.frm;
+let r = document.querySelector('#result');
+frm.btn.onclick=function(){
+	if(frm.id.value=='kim' && frm.pwd.value == '1111'){
+		r.innerHTML = 'PASS'
+	}else{
+		r.innerHTML = 'FAIL'
+	}
+}
+</script>
+</body>
+</html>

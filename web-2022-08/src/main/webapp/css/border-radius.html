@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>border-radius.html</title>
+<style>
+	div{
+		border: 3px solid #00f;
+		padding: 20px;
+		width: 100px;
+		margin-bottom:10px;
+	}
+	div.b{
+		border-radius: 0 30px 0 0 ;
+	}
+	div.c{
+		border-radius: 0 30px 0 30px ;
+	}
+	div.d{
+		border-radius: 30px 0 30px 0 ;
+	}
+	div.e{
+		border-radius: 30px ;
+	}
+	div.f{
+		border-radius: 30px 30px 0 0 ;
+	}
+	div.g{
+		border-radius: 0 30px 30px 0 ;
+		border-left-width: 30px;
+		padding: 10px 20px;
+		width: 200px;
+	}
+</style>
+</head>
+<body>
+<div class='a'>box1</div>
+<div class='b'>box2</div>
+<div class='c'>box3</div>
+<div class='d'>box4</div>
+<div class='e'>box5</div>
+<div class='f'>box6</div>
+<div class='g'>box7</div>
+</body>
+</html>

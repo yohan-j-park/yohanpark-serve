@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_focus(2).html</title>
+<style>
+
+</style>
+</head>
+<body>
+폼태그를 사용하여 수량,단가를 입력받고 수량이나 단가가 수정되면 즉시 금액을 계산하여 output태그에 출력하시오.
+<form name='frm'>
+	<span>수량:</span>
+	<input type='text' name='ea' onchange="abc()"/><br/>
+	<span>단가:</span>
+	<input type='text' name='price' onchange="abc()"/><br/>
+	<span>금액:</span>
+	<output name='output'></output>
+</form>
+<script>
+
+function abc(){
+	let frm = document.frm;
+	let ea = Number(frm.ea.value);
+	let price = Number(frm.price.value);
+	let amount = ea*price;
+	frm.output.value = amount;
+}
+</script>
+</body>
+</html>

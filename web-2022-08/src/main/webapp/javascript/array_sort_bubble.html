@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_sort_bubble.html</title>
+</head>
+<body>
+<script>
+// bubble sort
+let s=[1,5,3,4,2,6];
+console.log(s);
+let change=true;
+while(change){
+	change=false;
+	for(i=0; i<s.length-1; i++){
+		if(s[i]>s[i+1]){
+			min = s[i+1];
+			s[i+1] = s[i];
+			s[i] = min;
+			change = true;
+		}
+	}
+	console.log(s);
+}
+
+
+/* 계산 과정을 줄이는 방법 
+let s=[6,5,4,3,2,1];
+console.log(s);
+let change=true;
+let last=1;
+while(change){
+	change=false;
+	for(i=0; i<s.length-last; i++){
+		if(s[i]>s[i+1]){
+			min = s[i+1];
+			s[i+1]=s[i];
+			s[i] = min;
+			change = true;
+		}
+	}
+	last++;
+	console.log(s);
+}
+*/
+/* do문장 활용
+let s=[6,5,4,3,2,1];
+console.log(s);
+let change=true;
+let last=1;
+do{
+	change=false;
+	for(i=0; i<s.length-last; i++){
+		if(s[i]>s[i+1]){
+			min = s[i+1];
+			s[i+1]=s[i];
+			s[i] = min;
+			change = true;
+		}
+	}
+	last++;
+	console.log(s);
+}while(change);
+*/
+</script>
+</body>
+</html>

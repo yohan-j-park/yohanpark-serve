@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2 id='abc' class='def'>hi... i am h2 tag</h2>
+<script>
+let h2 = document.getElementById('abc');
+let str = 'nodeType = ' + h2.nodeType
+        + '\nnodeName = ' + h2.nodeName
+        + '\nnodeValue = ' + h2.nodeValue
+        + '\nnpaarentNode = ' + h2.parentNode.nodeName
+        + '\nchildNodes = ' + h2.childNodes
+        + '\nownerDocument = ' + h2.ownerDocument.nodeName;
+console.log(str)
+</script>
+</body>
+</html>

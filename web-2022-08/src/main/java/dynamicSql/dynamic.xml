@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dynamic">
+	<select id="if_test" parameterType="String" resultMap="testMap">
+		select employeeNumber,lastName,firstName from employees
+		<if test="_parameter != '' and _parameter != null">
+			where firstName = #{_parameter} or lastName = #{_parameter}
+		</if>
+	</select>
+				
+	<select id="choose_test" parameterType="Integer" resultType="dynamicSql.DynamicVo">
+		<choose>
+			<when test="_parameter == 1 ">
+				select employeeNumber,firstName,lastName from employees
+				where officeCode = #{_parameter} 
+			</when>
+			
+			<when test="_parameter == 2 ">
+				select employeeNumber,firstName,lastName,email from employees
+				where officeCode = #{_parameter} 
+			</when>
+			
+			<otherwise>
+				select * from employees
+			</otherwise>
+		</choose>
+	</select>	
+	
+	<select id="forEach_test" parameterType="List" resultMap="testMap">
+		select employeeNumber, firstName, lastName, email, officeCode
+		from employees
+		where officeCode in
+		<foreach collection="array" item="code" open="(" close=")" separator=",">
+			#{code}
+		</foreach>
+	</select>		
+			
+	<resultMap id="testMap" type="dynamicSql.DynamicVo">
+		<result property="employeeNumber" column="employeeNumber"></result>
+		<result property="lastName" column="lastName"></result>
+		<result property="firstName" column="firstName"></result>
+		<result property="extension" column="extension"></result>
+		<result property="email" column="email"></result>
+		<result property="officeCode" column="officeCode"></result>
+		<result property="reportsTo" column="reportsTo"></result>
+		<result property="jobTitle" column="jobTitle"></result>
+	</resultMap>
+</mapper>

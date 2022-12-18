@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector1.html</title>
+<style>
+*{
+	border:1px solid #999;
+	padding:5px; 
+}
+div>p{ /*div안에 있는 자손 p */
+	color:#f00;
+}
+div p{ /*div안에 있는 후손 p */
+	font-family : 궁서체;
+	font-style : italic;
+}
+div>p>span{
+	background-color:#ffff00;
+}
+</style>
+</head>
+<body>
+	<div>부모
+		<p>자손
+			<span>후손
+			</span>
+		</p>	
+		<span>형제
+			<p>P
+			</p>
+		</span>
+	</div>
+
+
+
+
+
+</body>
+</html>

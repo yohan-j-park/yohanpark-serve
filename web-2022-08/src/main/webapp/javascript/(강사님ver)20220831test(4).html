@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>20220831test(4).html</title>
+<link rel='stylesheet' href='a_type.css'
+	  media='screen and (min-width:600px) and (max-width:800px)'>
+	  
+<link rel='stylesheet' href='b_type.css'
+	  media='screen and (min-width:801px)'>
+	  
+<link rel='stylesheet' href='c_type.css'
+	  media='screen and (min-width:1000px)'>
+	  
+</head>
+<body>
+<div id='result'></div>
+
+<script>
+let img = '<img src="../images/농담곰2.jpg"/>';
+let r = document.querySelector('#result');
+for(i=0; i<100; i++){
+	r.innerHTML += img;
+}
+</script>
+</body>
+</html>

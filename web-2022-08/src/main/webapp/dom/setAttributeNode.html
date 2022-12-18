@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload=function(){
+   window.title = "setAttributeNode test for ajax";
+   node = document.getElementById("p3");
+   // setAttributeNode() sample
+   addAtt = document.createAttribute("align");
+   addAtt.nodeValue="center";
+   node.setAttributeNode(addAtt);
+   result.innerText = "\n p3 Node align : " + node.getAttribute("align");
+}
+</script>
+</head>
+<body>
+<p id="p3" bgcolor="#FFCC00">
+<font color=red>FIGHTING</font>
+</p>
+<hr>
+<b>Ajax Result</b>
+<div id="result"></div>
+</body>
+</html>

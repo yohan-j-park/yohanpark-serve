@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>getElementByTagName</h3>
+<p id='info'>태그명을 사용하여 요소를 선택하고 선택된 요소들의 여러가지 속성들을 출력</p>
+<form name='frm'>
+	<label>성 명</label>
+	<input type='text' name='irum' value='park' id='id_irum' class='class_irum'/><br/>
+	<label>주 소</label>
+	<input type='text' name='address' value='seoul' id='id_address' class='class_address'/><br/>
+	<label>연락처</label>
+	<input type='text' name='phone' value='1111-1111' id='id_phone' class='class_phone' /><p />
+    <input type='button' id='btn' value='확인' />
+</form>
+<h3>Result</h3>
+<div id='result'></div>
+
+<script>
+//결과를 출력하기 위해
+var rs = document.getElementById('result');
+//버튼을 id로 가져옴
+var btn = document.getElementById('btn');
+//버튼이 클릭되면
+btn.onclick = function(){
+	//input 태그를 모두 가져옴
+	var input = document.getElementsByTagName('input');
+	var str = "<ul><li>Length = " + input.length + "<\/li><\/ul>";
+	for (i = 0; i < input.length; i++) {
+	  str += '<ul><li> Name : ' + input[i].name;
+	  str += '<li>Value : ' + input[i].value;
+	  str += '<li>Type : ' + input[i].type;
+	  str += '<li>ID : ' + input[i].id;
+	  str += '<li>class : ' + input[i].className;
+	  str += "<\/ul>";
+	  }
+	rs.innerHTML = str;
+}
+</script>
+</body>
+</html>

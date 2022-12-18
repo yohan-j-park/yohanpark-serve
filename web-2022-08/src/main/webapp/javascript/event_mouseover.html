@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_mouseover.html</title>
+</head>
+<body>
+<img src='../images/농담곰.jpg' name='first'
+	width='800px' height='400px'/>
+<br/>
+	
+<img src='../images/농담곰2.jpg'
+	width='200px' height='100px'
+	onmouseover='mover(0)'
+	/>
+
+<img src='../images/hp.jpg'
+	width='200px' height='100px'
+	onmouseover='mover(1)'
+	/>
+
+<img src='../images/hp_omen.jpg'
+	width='200px' height='100px'
+	onmouseover='mover(2)'
+	/>
+	
+<img src='../images/농담곰.jpg'
+	width='200px' height='100px'
+	onmouseover='mover(3)'
+	/>
+
+<script>
+let target = document.first;
+let arry = [ ];
+for(i=0; i<4; i++){
+	arry[i] = new image();
+}
+
+	arry[0].src='../images/농담곰2.jpg';
+	arry[1].src='../images/hp.jpg';
+	arry[2].src='../images/hp_omen.jpg';
+	arry[3].src='../images/농담곰.jpg';
+	
+function mover(n){
+	target.src = arry[n].src;
+}
+
+
+</script>
+</body>
+</html>

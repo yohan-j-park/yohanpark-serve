@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>checkbox.html</title>
+</head>
+<body>
+<form name='frm' method='post'>
+	<h2>마음에 드는 알파벳을 고르시오</h2>
+	<textarea name='re' rows='5' cols='30'></textarea>
+	<br/>
+	<label><input type='checkbox' name='chk' value='a'>a</label>
+	<label><input type='checkbox' name='chk' value='b'>b</label>
+	<label><input type='checkbox' name='chk' value='c'>c</label>
+	<label><input type='checkbox' name='chk' value='d'>d</label>
+	<label><input type='checkbox' name='chk' value='e'>e</label>
+	<label><input type='checkbox' name='chk' value='f'>f</label>
+	<label><input type='checkbox' name='chk' value='g'>g</label>
+	<br/>
+	<label><input type='button' value='선택' name='btn' onclick='mclick(this.form)'></label>
+	<input type='reset' value='리셋'>
+</form>
+<script>
+/*
+let frm = document.frm;
+let tx = sessionStorage.getItem('tx');
+
+
+
+if(tx != null){
+	frm.re.value = tx;
+}	
+	
+	
+function mclick(frm){
+	frm.re.value = "";
+	for(index in frm.chk){
+		if(frm.chk[index].checked){
+			frm.re.value = frm.re.value + frm.chk[index].value + "\n";
+			
+		}
+		sessionStorage.setItem('tx', frm.chk[index].value);
+	}
+}
+*/
+
+// 강사님 ver 
+let str='';   // str이라는 변수를 지역형으로 선언하겠다.
+let chks=[]; // storage에 저장 될 값이나 저장한 값을 나타내는 배열 변수
+
+//session storage에 있는 값을 사용하여 현재 페이지의 초기값으로 설정
+let temp = sessionStorage.getItem('chks');
+let frm = document.frm;
+if(temp != null){
+	chks = temp.split(',');
+	for(v of chks){
+		for(tag of frm.chk){
+			if(tag.value == v){
+				tag.checked = true;
+				str += tag.value + '\n';
+				break;
+			}
+		}
+	}
+	frm.re.value = str;
+}
+
+
+
+function mclick(frm){
+	str= '';  // str이라는 변수를 사용하겠다.
+	chks=[];
+	for(tag of frm.chk){
+		if(tag.checked){	
+		str += tag.value + '\n' ; 
+		chks.push(tag.value);
+		}
+	}
+	frm.re.value = str;
+	sessionStorage.setItem('chks',chks);
+}
+
+</script>
+</body>
+</html>

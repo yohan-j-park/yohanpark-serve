@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>func_test(4).html</title>
+</head>
+<body>
+<div>
+1. 아이디와 암호를 매개변수로 전달받아 회원이면 "PASS", 회원이 아니면 "FAIL"
+을 리턴하는 함수 Login을 작성하시오 (id:a001 / pw:1111인 경우 회원)
+
+2. 아이디를 전달받아 아이디가 있으면 암호를 리턴하는 함수 SearchPwd를 작성하시오.
+(a001->1111을 리턴)
+
+3. 이메일과 암호를 매개변수로 전달받아 존재하면 회원의 아이디를 리턴하는 함수 SearchId를 작성하시오.
+(이메일: a001@korea.com, pw:1111 -> a001)
+
+4. Login, SearchPwd, SearchId를 테스트 코드를 작성.
+</div>
+<script>
+	let id = 'a001';
+	let pw = 1111;
+	let email = 'a001@korea.com';
+	
+function Login(id,pw){
+	r='FAIL';
+	if (id=='a001' && pw==1111){
+	r='PASS';	
+	}
+	return r;
+}
+	let a = Login(id,pw);
+	document.write(a);
+	
+	
+function SearchPwd(id){
+		r = pw;
+	if(id!='a001'){
+		r = '아이디가 맞지 않음';
+	}
+	return r;
+}
+	let k = SearchPwd(id);
+	document.write(k);
+	
+	
+function SearchId(x,y){
+	if (x=='a001@korea.com' && y==1111){
+		r = id;
+		return r;
+	}
+}	let s = SearchId(email,pw);
+	document.write(s);
+	 
+</script>
+</body>
+</html>

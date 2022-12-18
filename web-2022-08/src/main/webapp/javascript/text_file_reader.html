@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>text_file_reader.html</title>
+<style>
+#result{
+	padding:20px;
+	border:3px solid #aaa;
+	border-bottom:3px solid #aaa;
+	min-height:300px;
+	margin:30px;
+}
+</style>
+</head>
+<body>
+<span><h2>불러 올 파일을 선택하세요</h2></span>
+<input type='file' id='file' onchange='preview()'/>
+<output id='output'></output>
+<br/>
+<div id='result'></div>
+<script>
+let doc = ''; // 읽은 파일의 내용이 저장 될 변수
+function preview(ev){
+	let output = document.querySelector('#output');
+//file 태그에 의해 선택한 파일명 가져오기
+	let event = ev || window.event;
+	let fn = 'file name : ' + event.srcElement.files[0].name; 
+	// files:srcElement로 실행된 file들 (변경x) event.srcElement:이벤트가 발생한 개체를 반환/설정
+	let file = event.srcElement.files[0];
+	output.innerHTML = fn;
+	
+	// textfile을 읽기 위한 FileReader 생성
+	let reader = new FileReader();
+	reader.readAsText(file, 'utf-8');  //읽을 객체, 언어
+	
+	reader.onload = function(){ // 텍스트 파일을 모두 읽은 경우
+		let rs = document.querySelector('#result');
+		doc = this.result; // self: 자신, this:자신이 가지고 있는 멤버들
+		doc = doc.replace(/\</gi, '&lt');
+		doc = doc.replace(/\>/gi, '&gt');
+		doc = doc.replace(/\n/gi, '<br/>');
+		rs.innerHTML = doc;
+	}
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_keyevent.html</title>
+</head>
+<body>
+<!-- 
+1. name값이 frm인 form태그를 작성한다.
+2. 폼태그 안에서 span태그를 사용하여 주민번호 작성
+3. 그 뒤에 name값이 ju1인 텍스트 상자를 추가.
+4. 그 뒤에 name값이 ju2인 텍스트 상자를 추가.
+5. 그 아래 span태그를 사용하여 성명 작성
+6. 그 옆에 name값이 irum인 텍스트 상자를 추가.
+7. ju1, ju2에 keyup 핸들러를 추가하고 chk(this.form, 'ju1'),chk(this.form, 'ju2')
+   함수를 호출하도록 지정
+8. irum태그에 keyup핸들러를 추가하고 func()를 호출
+------<스크립트>------
+1. 매개변수가 ff, str인 함수 chk정의
+2. 만약 ff.ju1.value문자열 길이가 6이상이고 str의 값이'ju1'이라면 포인터를 ju2로 이동
+3. 만약 ff.ju2.value문자열 길이가 7이상이고 str의 값이 'ju2'라면 포인터를 irum으로 이동 시킨다.
+4. 매개변수를 event로 하고 함수명을 func로 지정하시오.
+5. window.event와 매개변수 event를 논리합연산하여 그 결과를 지역 변수 ev에 대입.
+6. 지역변수 k에 ev.key와 ev.keyCode를 논리합 연산하여 대입.
+7. 만약 k가 'Enter' 이거나 k가 13이라면 alert()창 띄우기.
+ -->
+ 
+<form name='frm'>
+	<span>주민번호:</span>
+	<input type='text' name='ju1' maxlength=6 onkeyup=chk(this.form,'ju1')> -
+	<input type='password' name='ju2' maxlength=7 onkeyup=chk(this.form,'ju2')>
+	<br/>
+	<span>성 명:</span>
+	<input type='text' name='irum' onkeyup='func()'>
+</form>
+ 
+<script>
+let str='';
+function chk(ff,str){
+	if(ff.ju1.value.length>=6 && str=='ju1'){
+		ff.ju2.focus();
+	}
+	if(ff.ju2.value.length>=7 && str=='ju2'){
+		ff.irum.focus();
+	}
+ }
+function func(event){
+	let ev = window.event || event;
+	let k = ev.key || ev.KeyCode;
+	if(k=='Enter' || k==13){
+		alert('ok..');
+	}
+}
+ 
+</script>
+</body>
+</html>

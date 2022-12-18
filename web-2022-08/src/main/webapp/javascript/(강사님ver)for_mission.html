@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>(강사님ver)for_mission.html</title>
+<style>
+.zone{
+	border:2px solid #aaa;
+	padding:10px;
+	display:inline-block;
+	width:130px;
+}
+</style>
+</head>
+<body>
+<h2> X~Y까지 구구단 출력</h2>
+<span>단 X</span>
+<input type='text' size='4' id='X' value='2'/><br/>
+<span>단 Y</span>
+<input type='text' size='4' id='Y' value='3'/>
+<input type='button' value='실행' id='btn'/>
+<hr/>
+<div id='result'></div>
+<script>
+let btn = document.querySelector('#btn');
+let result = document.querySelector('#result');
+btn.onclick = function(){
+	let str = ' ';
+	let x = Number(document.querySelector('#X').value);
+	let y = Number(document.querySelector('#Y').value);
+	for(let dan=x ; dan<=y; dan++){
+		str += "<div class='zone'>" + dan + " 단<br/>";
+		
+		for(var i=1; i<=9; i++){
+			str += dan + " x " + i + " = " + (dan*i) + "<br/>";
+		}
+		str += "</div>";
+	}
+	result.innerHTML = str;
+};
+
+</script>
+</body>
+</html>

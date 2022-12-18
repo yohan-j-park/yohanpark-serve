@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array(4).html</title>
+</head>
+<body>
+<script>
+
+let mountain = ['백두산','금강산','설악산','한라산'];
+let river = ['두만강','낙동강','한강','섬진강']; 
+
+//concat
+let all = mountain.concat(river);
+
+document.write("산:" + mountain + "<br/>");
+document.write("강:" + river + "<br/>");
+document.write("산 과 강:"+all+"<hr/>");
+
+//join
+document.write("산:" + mountain.join("->") + "<br/>");
+document.write("강:" + river.join("*") + "<br/>");
+document.write("산 과 강:"+all.join("<-->")+"<hr/>");
+
+//reverse
+document.write("산(reverse):" + mountain.reverse() + "<br/>");
+document.write("강(reverse):" + river.reverse() + "<br/>");
+document.write("산 과 강(reverse):"+all.reverse()+"<hr/>");
+
+ary = [0,1,2,3,4,5,6,7,8];
+
+//shift
+ary.shift();
+document.write("shift:",ary,"<hr/>");
+
+//pop
+ary.pop();
+document.write("pop:",ary,"<hr/>");
+
+//splice(index,length)
+ary.splice(1,2);
+document.write("splice:",ary,"<hr/>");
+
+//slice(begin[,end])
+document.write("slice:",ary.slice(3,7)); 
+</script>
+</body>
+</html>

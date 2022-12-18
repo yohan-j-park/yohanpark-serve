@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tri_dialog.html</title>
+<style>
+#result{
+	background-color:#aaf;
+	padding:20px;
+	width:400px;
+	min-height:150px;
+	margin-top:20px;
+}
+</style>
+</head>
+<body>
+<input type='button' value='ALERT'    onclick ='func1()'/>
+<input type='button' value='PROMPT'   onclick ='func2()'/>
+<input type='button' value='CONFIRM'  onclick ='func3()'/>
+<div id='result'></div>
+<script>
+let r = document.querySelector('#result');
+function func1(){
+	alert('주의하세요');
+	r.innerHTML = "<font color='#ff0'>주의 바람!!!</font>";
+}
+function func2(){
+	let dan = prompt('실생활 구구단은?', 2);
+	r.innerHTML = '<h2>' + dan + '단</h2>';
+}
+function func3(){
+	let yn = confirm('정말 삭제하시겠습니까?');
+	if(yn){
+		r.innerHTML = '삭제가 실행되었습니다.';
+	}else{
+		r.innerHTML = '삭제가 취소되었습니다.';
+	}
+}
+
+
+
+</script>
+</body>
+</html>

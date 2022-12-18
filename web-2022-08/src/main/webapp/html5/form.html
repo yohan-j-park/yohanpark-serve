@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form.html</title>
+	</head>
+	<body>
+		<form name='frm' method='post' action='register.do'>
+			<label>아이디</label>
+				<input type='text' name='id' maxlength='10'
+			 	placeholder='영문 및 숫자만 가능합니다.' value='none' size='20'/>
+			<br/>
+			<label>암호</label>
+				<input type='password' name='pwd' maxlength='15'
+				 placeholder='영문 및 숫자 15자 이내로 가능' size='25'/>
+			 <br/>
+			 <label>성별</label>
+			 <label>
+			 	<input type='radio' name='gender' value='m' checked/>남자
+			 </label>
+			 <label>
+			 	<input type='radio' name='gender' value='f'/>여자
+			 </label>
+			 <br/>
+			 <label>취미</label>
+			 <label>
+			 	<input type='checkbox' name='hobby' value='축구'/>축구
+			 </label>
+			 <label>
+			 	<input type='checkbox' name='hobby' value='농구'/>농구
+			 </label>
+			 <label>
+			 	<input type='checkbox' name='hobby' value='탁구'/>탁구
+			 </label>
+			 <br/>
+			 <label>성명</label>
+			 	<input type='search' name='name'/>
+			 <br/>
+			 <label>등급</label>
+			 	<input type='range' min='1' max='10' step='1' value='5'/>
+			 <br/>
+			 <label>키</label>
+			 	<input type='number' min='0' max='300' step='10' value='150'/>
+			 <br/>
+			 <label>등록일자</label>
+			 	<input type='date' name='nal'/>
+			 <br/>
+			 <label>약속시간</label>
+			 	<input type='time' name='time'/>
+			 <br/>
+			 <label>메인컬러</label>
+			 	<input type='color' name='color'/>	
+			 <br/>
+			 <label>첨부파일</label>
+			 	<input type='file' name='photo' multiple
+			 			accept='image/* \ vedio/*'/>
+			 <hr/>
+			 	<input type='reset'/>
+			 	<input type='submit'/>
+			 	<input type='button' value='사용자지정'/>		 	
+			 
+		</form>
+	</body>
+</html>

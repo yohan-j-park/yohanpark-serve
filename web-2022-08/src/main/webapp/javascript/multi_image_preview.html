@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>multi_image_preview.html</title>
+<style>
+#photos{
+	min-height:120px;
+	border: 2px solid #999;
+	padding:10px;
+	margin-top:5px;
+}
+.sub_item{
+	border:1px solid #00f;
+	width:120px;
+	height:150px;
+	position:relative;
+	display:inline-block;
+}
+.sub_item>div{
+	position:absolute;
+	width:30px;
+	height:30px;
+	right:3px;
+	bottom:3px;
+	background-color:#aaa8;  /* 나중에 지울것 */
+}
+.sub_item>div:hover{
+	cursor:pointer;
+}
+.sub_item>img{
+	width:100%;
+	height:100%;
+}
+.sub_item>div{
+	font-size:20pt;
+	color:red;
+	text-align:center;
+	padding-bottom:5px;
+}
+</style>
+</head>
+<body>
+<h2>갤러리에 업로드 할 사진들을 선택하세요</h2>
+<input type='file' id='btnUpLoad' multiple/> <!-- multiple(multiple="multiple", XHTML에서 사용)을 써 줘야 여러가지 선택 가능 -->
+<div id='photos'>
+
+</div>
+<script>
+let fileList=[];
+let dt = new DataTransfer(); // file tag의 정보를 수정하기 위한 객체
+
+let photos = document.querySelector('#photos'); // 미리보기 이미지
+let btnUpload = document.querySelector('#btnUpLoad'); 
+btnUpload.onchange = function(ev){ 
+	let files = ev.srcElement.files; // 이벤트가 발생한 태그의 파일들(배열)
+	if(files.length<=0) return; // 아무런 파일도 선택하지 않은 경우
+	let fileArray = Array.prototype.slice.call(files); //call(): 상위 context(문맥)를 변경하는 메서드
+	// 이 코드가 존재하는 함수의 매개변수로 넘어온 값들을 array로 변환하겠다는 것
+	
+
+	for(f of fileArray){  // image와 x박스가 들어갈 영역을 만드는 작업
+		fileList.push(f);
+	
+		let div = document.createElement('div'); // 자바스크립트에서 태그(<div> , <img> 등)를 만드는 단어들
+		let img = document.createElement('img'); // Element, Node(네트워크가 연결되는 지점, HTML에선 가지가 발생하는 지점)등이 있음
+		let chk = document.createElement('div');
+		div.setAttribute('class', 'sub_item'); //선택한 요소의 속성값을 정해서 만듦:  <div class='sub_item'></div>
+		loadImage(img, f); //첫번째 인자 : 응용 프로그램의 인스턴스 핸들(메모리에 생성된 클래스의 실체)
+						   //두번째 인자 : 리소스 파일의 경로나, 리소스 ID를 MAKEINTRESOURCE(정수로 지정한 리소스 아이디를 문자열로 바꿔줌) 매크로를 이용하여 반환한 값이 주어진다.
+						    
+		div.appendChild(img); //.appendChild()는 선택한 요소 안에 자식 요소를 추가합니다
+		div.appendChild(chk); //.appendChild()는 선택한 요소 안에 자식 요소를 추가합니다
+		chk.innerHTML = 'X';
+		chk.setAttribute('file', f.name);
+		photos.appendChild(div);
+		
+		chk.onclick = function(ev){  //chk를 클릭하면 이벤트가 매개변수ev를 타고 들어간다
+			let ele = ev.srcElement; //이벤트가 발생한 태그 , X버튼
+			let parent = ele.parentNode; // ele를 포함한 부모 태그, div.sub_item
+			let delFile = chk.getAttribute('file'); //chk.setAttribute('file', f.name); 에서 f.name(파일명)을 가져옴
+			
+			for (i in fileList){
+				if(fileList[i].name == delFile){
+					fileList.splice(i,1);
+					break;
+				}
+			}
+			
+			photos.removeChild(parent); // appendChild의 삭제명령어
+			changeFileTag(btnUpload);
+			
+		} // onclick 끝
+	} // for문 끝
+	changeFileTag(this);  //btnUpLoad	
+} // onchange 끝
+
+function loadImage(img, file){ //파일을 읽어서 이미지태그에 집어넣는다는 뜻의 함수
+	let result;
+	let reader = new FileReader();
+	reader.readAsDataURL(file);
+	reader.onload = function(fev){ //읽기가 끝나면
+		let tempImg = new Image(); 
+		tempImg.src = this.result;
+		img.src = tempImg.src;
+	}
+}
+
+function changeFileTag(fileTag){
+	dt = new DataTransfer(); 
+	for(f of fileList){   // fileList엔 수정된 최종 정보가 들어감
+		dt.items.add(f);
+	} // end of for
+	
+	fileTag.files = dt.files; // file tag 정보를 갱신
+}// end of change
+</script>
+</body>
+</html>

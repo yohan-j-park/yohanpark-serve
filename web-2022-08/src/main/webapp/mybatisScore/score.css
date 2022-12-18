@@ -1,0 +1,47 @@
+@charset "UTF-8";
+#score>h2{
+	text-align:center;
+	margin-top:20px;
+}
+#score>form{
+	text-align:right;
+}
+#score .title{
+	background-color:#1b2035;
+	color:white;
+	margin-top:3px;
+	padding:6px 0;
+	display:table-row;
+	width:100%;
+}
+#score .title>span{
+	display:table-cell;
+	z-index:-1;
+}
+#score .no{ width:100px;}
+#score .serial{ width:100px;}
+#score .id{ width:200px;}
+#score .subject{ width:250px;}
+#score .mdate{ width:250px;}
+#score .score{ width:100px;}
+
+#score .item{
+	display: table-row;
+}
+#score .item:hover{
+	background-color:#ddd;
+	cursor:pointer;
+	color:white;
+}
+#score .item>span{
+	display: table-cell;
+}
+#score .btn_zone{
+	border-top: 2px solid #1b2035;
+	margin-top: 5px;
+	padding-top:4px;
+	text-align:center;
+}
+#score .btn_zone>input{	
+	padding:0px 7px;
+}

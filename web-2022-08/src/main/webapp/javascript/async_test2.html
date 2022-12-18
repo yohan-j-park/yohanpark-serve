@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>async_test(2).html</title>
+</head>
+<body>
+<input type='text' size='40'/>
+<script>
+//비동기화 된 데이터를 동기화 시키는 과정
+
+function a(){
+	let r;
+	let w1 = new Worker('web_worker1.js');
+	let p = new Promise(function(resolve,reject){
+	w1.onmessage = function(ev){
+		r = ev.data;
+		resolve(r);
+		console.log(r);
+		}		
+	})
+	return p;
+}
+function b(){
+	let r;
+	let w2 = new Worker('web_worker2.js');
+	let p = new Promise(function(resolve,reject){
+	w2.onmessage = function(ev){
+		r = ev.data;
+		resolve(r);
+		console.log(r);
+		}		
+	})
+	return p;
+}
+function c(){
+	let r;
+	let w3 = new Worker('web_worker3.js');
+	let p = new Promise(function(resolve,reject){
+	w3.onmessage = function(ev){
+		r = ev.data;
+		resolve(r);
+		console.log(r);
+		}		
+	})
+	return p;
+}
+async function main(){
+	let r1 = await a();
+	let r2 = await b();
+	let r3 = await c();
+	
+	console.log('r1=', r1);
+	console.log('r2=', r2);
+	console.log('r3=', r3);
+}
+
+main();
+
+</script>
+</body>
+</html>

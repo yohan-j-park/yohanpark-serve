@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>temp.html</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+ <style>
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap');
+
+/* 
+.video-wrap{
+	-ms-overflow-style: none;
+    position: relative;
+    box-shadow: 0 0 5px #03e2ff,
+                0 0 20px #03e2ff,
+                0 0 40px #03e2ff,
+                0 0 80px #03e2ff;
+}
+.video-wrap video{
+	margin:0;
+	-ms-overflow-style: none;
+    position:absolute;
+	width:100%;
+}
+ */
+::-webkit-scrollbar {
+display: none;
+}
+
+.first_copy{
+	position:absolute;
+	top:18%;
+	left:16%; 
+	color:#fff;
+	text-shadow: 4px 4px 4px black;
+	font-size:52px;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+.second_copy{
+	position:absolute;
+	top:18%;
+	left:40%; 
+	color:#fff;
+	text-shadow: 5px 5px 5px black;
+	font-size:23px;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+.third-copy{
+	position:absolute;
+	top:7%;
+	right:12%; 
+	color:#fff;
+	text-shadow: 8px 8px 8px black;
+	font-size:26px;
+	font-family: 'Do Hyeon', sans-serif;
+}
+
+.video_mute{
+	display:inline-block;
+	background-color:white;
+	position:absolute;
+ 	margin:6px;
+	background: url( "images/robot_logo2.png" ) no-repeat;
+ 	z-index: 3;
+    border: none;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+}
+.btnMute_image{
+	width: 40px;
+    height: 40px;
+    
+}
+.background_div{
+	background-color:black;
+	width:100%;
+	height:100%;
+	bottom:0;
+	right:0;
+	position:absolute;
+	z-index: -2;
+}
+
+.font_color{
+	color:red;
+}
+</style>
+</head>
+<div class="background_div"></div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+<button class="video_mute"><img src="images/sound_button.png" class="btnMute_image"></button>
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    
+<pre class="first_copy">
+로봇 없인 <font color="#a793f9">밥 한술도 못 뜨는 세상</font>
+저희 <font color="#90cefa">엄브렐라 네카라쿠배 로보틱스</font>가
+만들겠습니다.
+</pre>
+		
+    	
+      	<video src="video/futuristic_video.mp4" id="video_obj" autoplay muted class="d-block w-100" alt="...">
+		</video>
+    </div>
+    <div class="carousel-item">
+
+<pre class="second_copy">
+차가운 두뇌, 따뜻한 심장
+우리 엄브렐라 로보틱스는...
+
+핵전쟁의 여파로 힘든 요사이
+여러분 곁을 따뜻하게 지키고 싶습니다.
+
+개인용 핵우산으로 
+수백만의 생명을 지켰던 Nuclear Umbrella Corps. ...
+
+네카라쿠배로부터 출자받아
+엄브렐라 네카라쿠배 로보틱스로 새롭게 시작합니다.
+ 
+로봇 없인 밥 한술 못 뜨는 세상이
+여러분 앞에 있습니다.
+
+- 엄브렐라 네카라쿠배 로보틱스 배상 -
+</pre>
+
+      <img src="images/op_modify_background.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+<pre class="third-copy">
+<font color="#45b6b8" size=20px>회원 등급 해명</font>
+
+항간에 당사 대표이사 <font color=#7b60c0>이한나</font>가 버거킹 와퍼를
+좋아해 회원 등급을 주니어, 와퍼, 킹으로 
+결정했다는 뜬소문이 돌고 있습니다.
+
+이에 당사는 <font color=#7b60c0>이한나</font>가 <font color=coral>통새우슈림프버거</font>를
+좋아한다는 점에서 위의 소문이 근거 없는
+낭설이라는 사실을 전합니다.
+
+또한, 악의가 담긴 잘못된 정보를 지속해서
+유포할 경우 기관 및 개인을 불문하고 강력한
+법적 조치로 대처하겠다는 사실 전합니다.
+</pre>
+      <img src="images/robot_arm2.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+<script>
+    $('.video_mute').on('click', function () {
+        $('#video_obj').prop('muted', false);
+    });
+</script>
+
+</html>

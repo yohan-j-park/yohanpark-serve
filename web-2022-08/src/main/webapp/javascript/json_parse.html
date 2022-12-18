@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>json_parse.html</title>
+</head>
+<body>
+
+<script>
+
+// JSON.parse : 문자열로 되어 있는 json형식의 데이터를 json object로 변환시키는 함수
+
+let json_str = '{"id" : "hong"}'; 
+let json_obj = JSON.parse(json_str);
+console.log(json_obj);
+
+json_str = '["123","abc","가나다"]';
+json_obj = JSON.parse(json_str);
+console.log(json_obj);
+
+json_str = '{"ids" : ["abc","123","가나다"]}'
+json_obj = JSON.parse(json_str);
+console.log(json_obj);
+</script>
+</body>
+</html>

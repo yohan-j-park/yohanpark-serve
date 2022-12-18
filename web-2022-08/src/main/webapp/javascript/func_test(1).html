@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>func_test(1).html</title>
+</head>
+<body>
+<script>
+// 1) 매개변수 x, 반환값 x
+function MyName(){		//function은 hoisting 됨: 따라서 MyName 함수가 선언되기 이전에 MyName()이라고 함수를 호출해도 출력됨
+	console.log('박요한');
+}
+MyName();
+// MyName이라고 하는 함수가 객체로 생성되어 변수 m에 대입된다. 이 때 m은 일반변수와 다르게 객체명이라 한다.
+let m = new MyName(); // new =>MyName()이라고 하는 함수를 객체로 만들어줌.
+
+// 2) 매개변수 x, 반환값 o
+function MyAddress(){
+	return "대한민국";
+}
+let address = MyAddress();
+console.log(address);
+
+// 3) 매개변수 o, 반환값 x
+
+function sum(x,y){
+	let s = x + y;
+	console.log('s=' + s);
+}
+sum(10,20);
+sum(20,100);
+let x = 100;
+let y = 200;
+sum(x,y);
+
+// 4) 매개변수 o, 반환값 o
+function avg(xx,yy){
+	let s = xx+yy;
+	let a = s/2;
+	return a;
+}
+console.log(avg(10,20));
+console.log(avg(100,20));
+
+
+</script>
+</body>
+</html>

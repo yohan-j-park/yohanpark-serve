@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_object</title>
+<style>
+*{
+margin:0;
+padding:0;
+}
+input[type=button]{
+	margin-bottom:20px;
+	font-size:500px;
+}
+</style>
+</head>
+<body>
+<form name='frm'>
+<input type='button' value='click' name='btn'><br/>
+<textarea rows=10 cols=50 name='result'></textarea>
+</form>
+<script>
+window.onload = function(){
+	document.frm.btn.onclick=func;
+}
+function func(ev){
+	e = ev || window.event;
+	
+	document.frm.result.value = e.srcElement.name + "\n";
+	document.frm.result.value += e.x + "\n";
+	document.frm.result.value += e.y + "\n";
+	document.frm.result.value += e.type + "\n";
+}
+
+</script>
+</body>
+</html>

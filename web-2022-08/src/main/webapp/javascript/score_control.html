@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>score_control.html</title>
+<link rel='stylesheet' href='../css/score_control.css'>
+<script defer src='../js/score_control2.js'></script> <!-- defer: body부분이 실행된 후 실행해달라 -->
+</head>
+<body>
+<main>
+	<div class='main_title'>
+	성적 정보 CRUD
+	</div>
+	<form name='frm_member'>
+		<span>학번</span>
+		<input type='text' name='stdid' value='' placeholder='학번을 입력하세요'/><br/>
+		<span>과목</span>
+		<input type='text' name='subject' value='' placeholder='과목을 입력하세요'/><br/>
+		<span>성적</span>
+		<input type='text' name='grade' value='' placeholder='점수를 입력하세요'/><br/>
+		<span></span>
+		<input type='button' value='INPUT' name='btninput' onclick='input(this.form)'/>
+		<input type='button' value='UPDATE' name='btnupdate' onclick='update(this.form)'/>
+		<input type='button' value='DELETE' name='btndelete' onclick='deleteFunc(this.form)'/>
+	</form>
+	<div id='list'>
+		<div id = 'title'>
+			<span class='stdid'>학번</span>
+			<span class='subject'>과목</span>
+			<span class='grade'>성적</span>
+		</div>
+		<div id='items'>
+			<div class='item' onclick= 'view(100)'> <!-- view()안에 id값이 아닌 index값을 써야 함 -->
+				<span class='stdid'></span>
+				<span class='subject'></span>
+				<span class='grade'></span>
+			</div>
+		</div>
+			<div class='status'></div>
+			
+	</div>
+	<div class='status'></div>
+	
+</main>
+</body>
+</html>

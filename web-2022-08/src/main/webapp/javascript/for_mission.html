@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for_mission.html</title>
+<style>
+fieldset{
+	width:700px;
+	height:1000px;
+	padding: 10px auto; 
+	border:2px solid black;
+	background-color:lightblue;
+}
+fieldset>legend{
+	text-align:center;
+}
+div{
+	border:2px dotted black;
+	width:200px;
+	height:250px;
+	background-color:lightgrey;
+	display:inline-block;
+	margin-top:8px;
+	margin-left:8px;
+}
+
+</style>
+</head>
+<body>
+<fieldset>
+	<legend><h2>구구단 출력</h2></legend>
+	<span>~단부터</span>
+	<input type='text' id='xdan'/>
+	<br/> <br/>
+	<span>~단까지</span>
+	<input type='text' id='ydan'/>
+	<input type='button' id='btn' value='실행'/>
+	<br/>
+	<output id='output'></output>
+</fieldset>
+
+<script>
+let btn = document.querySelector('#btn');
+let output = document.querySelector('#output');
+let str = ' '; 
+btn.onclick = function(){
+	let x = Number(document.querySelector('#xdan').value);
+	let y = Number(document.querySelector('#ydan').value);
+	for(let i=x; i<=y; i++){
+		str += "<div class='table'>" + i + "단<br/>";
+		for(let j=1; j<=9; j++){
+			str += i + " x " + j + " = " + (i*j) + "<br/>";
+		}	
+			str += "</div>";
+	}
+			output.innerHTML = str;
+}
+</script>
+</body>
+</html>

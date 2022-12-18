@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>부모 자식 node 가져오기</title>
+</head>
+<body>
+<div id='parents'>
+	<button type='button' class='previous' value='previous'>왼쪽 형제</button>
+	<button type='button' class='me' value='me'>자신</button>
+	<button type='button' class='next' value='next'>오른쪽 형제</button>
+</div>
+
+<script>
+let me = document.querySelector('.me');
+
+let parents = me.parentElement;
+let leftBtn = me.previousElementSibling;
+let rightBtn = me.nextElementSibling;
+
+console.log('parents:' , parents.id); // parents
+console.log('me:', me.value);		  // me
+console.log('prev:', leftBtn.value);  // previous
+console.log('next:',rightBtn.value);  // next
+
+console.log('------------------------');
+
+let childs = parents.children;
+console.log('child cnt:', childs.length); // 3
+console.log(childs[0].value);			  // previous
+console.log(childs[1].value);			  // me
+console.log(childs[2].value);			  // next
+
+</script>
+</body>
+</html>

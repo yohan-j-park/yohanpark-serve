@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_reduce.html</title>
+</head>
+<body>
+<script>
+let array=[3,7,4,2,3,42,3,53,45,346,35,23,413,424,2,3];
+let reduce = array.reduce(function(cur, now){
+	cur[now] = ++cur[now] || 1;
+
+	
+	return cur; //cur: 누산값,처음{} / now: 현재값, 처음3 
+}, {})
+	console.log(reduce);
+
+let array1=[3,7,4,2,3,42,3,53,45,346,35,23,413,424,2,3];
+let reduce1 = array1.reduce((cur, now) => cur[now] = ++cur[now] || 1 , {} ); 
+	console.log(reduce1);
+	
+
+</script>
+</body>
+</html>
+

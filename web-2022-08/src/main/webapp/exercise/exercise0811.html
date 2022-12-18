@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>exercise0811.html</title>
+	</head>
+	<body>
+		<head>
+		<h2>따릉이 만족도 설문조사</h2>
+		</head>
+		<form name='frm' method='past' action='register.do'>
+		<label>성 명:</label>
+			<input text='text' name='이름' maxlength='5'/>
+		<br/>
+		<label>주민등록번호(-생략):</label>
+		<span><input type='password' name='pwd' maxlength='7'/>
+		 <font color='#ff0000'> ※설문지에 주민등록번호는 요구하지 않지만 오늘 배운 내용을 복습하려고 넣었음</font>
+		</span>
+		<br/>
+		<label>성 별:</label>
+			<label><input type='radio' name='gender' value='m' checked/>남자</label>
+			<label><input type='radio' name='gender' value='f'/>여자</label>
+		<br/>
+		<label>생년월일</label>
+			<input type='date' name='birth'/>
+		<br/>
+		<label>이용하신 정기권</label>
+			<select>
+			<optgroup label='1. 7일권'>
+				<option value='7일권:1시간'>7일권: 1시간</option>
+				<option value='7일권:2시간'>7일권: 2시간</option>
+			</optgroup>
+			<optgroup label='2. 30일권'>
+				<option value='30일권:1시간'>30일권: 1시간</option>
+				<option value='30일권:2시간'>30일권: 2시간</option>
+			</optgroup>
+			<optgroup label='3. 180일권'>
+				<option value='180일권:1시간'>180일권: 1시간</option>
+				<option value='180일권:2시간'>180일권: 2시간</option>
+			</optgroup>
+			<optgroup label='4. 365일권'>
+				<option value='365일권: 1시간'>365일권: 1시간</option>
+				<option value='365일권: 2시간'>365일권: 2시간</option>
+			</optgroup>
+			</select>
+		<br/>
+		<br/>
+		<fieldset>
+			<legend>응답사항</legend>
+			<label>이용빈도:</label>
+			<br/>
+				<input type='radio' name='frequency' value='잦다'/>잦다
+				<input type='radio' name='frequency' value='보통이다'/>보통이다
+				<input type='radio' name='frequency' value='드물다'/>드물다
+			<br/>
+			<br/>
+			<label>따릉이를 주로 어느 시간대에 이용하셨나요?</label>
+			<br/>
+				<input type='radio' name='hours of use' value='아침'/>아침
+				<input type='radio' name='hours of use' value='점심'/>점심
+				<input type='radio' name='hours of use' value='저녁'/>저녁
+			<br/>
+			<br/>
+			<label>따릉이 대여소는 적절하게 배치되었나요?<label>
+			<br/>
+				<input type='radio' name='fulfilment' value='그렇다'/>그렇다
+				<input type='radio' name='fulfilment' value='보통이다'/>보통이다
+				<input type='radio' name='fulfilment' value='아니다'/>아니다
+			<br/>
+			<br/>
+			<label>주로 고장 나 있던 부위는 어디인가요?</label>
+			<br/>
+				<input type='checkbox' name='element' value='타이어'/>타이어
+				<input type='checkbox' name='element' value='체인'/>체인
+				<input type='checkbox' name='element' value='안장'/>안장
+				<input type='checkbox' name='element' value='페달'/>페달
+				<input type='checkbox' name='element' value='브레이크'/>브레이크
+				<input type='checkbox' name='element' value='기타'/>기타
+				<input type='text'/>
+			<br/>
+			<br/>
+			★나머지는 집에 가고 싶은 관계로 생략..★
+		</fieldset>
+		<br/>
+		<label>기타 요구사항</label>
+		<br/>
+			<textarea area='doc' cols='60' rows='10'
+			placeholder='추가로 문의 할 사항이 있으면 적어주세요' size='40'></textarea>
+		<br/>
+		<output>설문에 응답 해 주셔서 감사합니다.</output> 
+		<input type='button' value='제출하기'/>
+		<input type='button' value='다시 작성하기'/>		
+			
+		</form>
+	</body>
+</html>

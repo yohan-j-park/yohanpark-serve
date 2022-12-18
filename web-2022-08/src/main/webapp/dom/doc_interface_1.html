@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script id='my_script'>
+function processEvent(){
+	var str = "";
+	var rs = document.getElementById("result");
+	var root = document.documentElement;
+	
+	str = "root.nodeName : " + root.nodeName;
+	var head = document.head;
+	
+	str += "<br/>document.head : " + head.nodeName;
+	
+	// p tag 에 대한 정보
+	
+	var body = document.body;
+	str += "<br/><br/>body firstChild tag name : "
+		+ body.firstElementChild.nodeName;
+	str += "<br/>firstElementChild.innerText : "
+		+ body.firstElementChild.innerText;
+	str += "<br/>firstElementChild.className : "
+		+ body.firstElementChild.className;	
+	str += '<br/><br/>document.documentURI : ' 
+	    + document.documentURI;
+	str += '<br/>document.URL : ' 
+	  	+ document.URL;
+	str += '<br/>document.location : ' 
+		+ document.location;
+	str += '<br/><br/>script id : ' 
+		+ document.scripts[0].id;
+	str += '<br/>form[0].name : ' 
+		+ document.forms[0].name;
+	str += '<br/>form[1].name : ' 
+		+ document.forms[1].name;
+	str += '<br/><br/>document.domain : ' 
+		+ document.domain;
+	str += '<br/>document.referrer : ' 
+		+ document.referrer;
+	str += '<br/>document.images[0].src : ' 
+		+ document.images[0].src;
+	rs.innerHTML = str;
+}
+</script>
+</head>
+<body>
+<p class="intro">버튼을 클릭하시오</p>
+<form name='frm1'>
+	<input type="button" value="Document" onclick ="processEvent()">
+</form>
+<a href='doc_interface_2.html'>referere test</a>
+<p class="body">[루트 노드 결과]</p>
+<div id="result"></div>
+<p />
+<img src ='../images/농담곰.jpg' width='200px'/>
+
+<form name='another'></form>
+
+</body>
+</html>

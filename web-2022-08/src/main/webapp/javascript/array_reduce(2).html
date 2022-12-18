@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_reduce(2).html</title>
+</head>
+<body>
+<div id='result'></div>
+<script>
+let result = document.querySelector('#result');
+let students=[
+	{'name' : 'hong', 'grade' : 0},
+	{'name' : 'kim',  'grade' : 1},
+	{'name' : 'lee',  'grade' : 2},
+	{'name' : 'park', 'grade' : 2},
+	{'name' : 'choi', 'grade' : 3}
+];
+let test3 = { 'grade' : 1 , 'name' : 'kim'};
+console.log(test3['name']);
+console.log(students[1]['name']);
+console.log(students[2]['grade']);
+let groupby = function(array,key){
+	let r = array.reduce(function(data,obj){
+		var k = obj[key];
+		if(!data[k]) data[k] = []; 	// data={1:[]}
+			data[k].push(obj);
+		return data;
+	},{});
+	return r;
+};
+
+let gp = groupby(students, 'grade');
+console.log(gp);
+let arr=[];
+for(r of gp['2']){
+	arr.push(r);
+}
+console.log(arr.length);
+
+
+
+// for of를 사용하여 2학년만 출력
+for(r of gp['2']){
+	console.log('name :', r.name);
+	result.innerHTML = 'name :' +  r.name + ' grade:' + r.grade;
+}
+
+console.log(gp['2']);
+
+// forEach를 사용하여 1학년만 출력
+console.log('---------------------');
+gp['1'].forEach(function(v){
+	console.log('name:', v.name, 'grade:', v.grade);
+})
+</script>
+</body>
+</html>

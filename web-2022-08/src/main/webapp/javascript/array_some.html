@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_some.html</title>
+</head>
+<body>
+<script>
+// 점수들 중에서 과락이 있는지 판별
+let score=[66,55,77,88,41];
+let test1 = score.some(function(v){
+	return v<40;
+});
+console.log(test1); 
+// true: '하나라도' 40점보다 낮은것이 있다 > 과락이 있다.
+// false: '전부 다' 40점 이상이다 > 과락이 없다.
+</script>
+</body>
+</html>

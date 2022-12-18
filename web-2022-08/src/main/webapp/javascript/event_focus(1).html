@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_focus(1).html</title>
+</head>
+<body>
+<form name='ff'>
+	<input type='text' name='a'
+		onfocus = 'aaa(this.form)'
+		onblur  = 'bbb(this.form)'
+	/>
+	<input type='text' name='c'
+		onchange = 'ccc(this.form)'
+		onclick  = 'ddd(this.form)'/>
+	<input type='text' name='b'/>
+</form>
+<script>
+function aaa(f){
+	f.b.value = 'focus';
+}
+function bbb(f){
+	f.b.value = 'blur';
+}
+function ccc(f){
+	f.b.value = 'change';
+}
+function ddd(f){
+	f.b.value = 'click';
+}
+</script>
+</body>
+</html>

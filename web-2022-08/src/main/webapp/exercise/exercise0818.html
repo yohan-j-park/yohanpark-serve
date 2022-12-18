@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* [연습1] 키를 변수 t에 대입하고 몸무게를 변수 w에 대입했을 때
+		  키가 119초과 200미만이고 몸무게가 37초과 120미만일 때 TRUE를 출력, 그 이외엔 FALSE를 출력하시오 */ 
+		  
+let t=178;
+let w=75;
+
+let k = (119<t<200) && (37<w<120);
+console.log(k);
+
+/* [연습2] 국어,영어,수학,음악,미술,체육 시험점수를 임의의 변수에 대입하고 어느 한 과목이라도 49점 미만이거나
+ 		  평균점수가 69점 미만이면 false를 출력하시오 */ 
+
+let kor=80;  //국어점수
+let eng=55;  //영어점수
+let mat=70;  //수학점수
+let mus=90;  //음악점수
+let art=50;  //미술점수
+let ath=85;  //체육점수
+let ave = (kor+eng+mat+mus+art+ath)/6;
+
+let i = (kor>49) && (eng>49) && (mat>49) && (mus>49) && (art>49) && (art>49) && (ath>49) &&
+		(ave>=69);
+		
+document.write(i);
+
+/* [연습3] 변수 n에 정수하나를 대입한 후 3항 연산자를 사용하여 홀짝수를 구분해 홀수인경우 "홀수"를
+   짝수인 경우 "짝수"를 정수 n과 함께 출력 하시오. */
+   
+ let n=50;
+ let r = (n%2==0) ? "짝수" : "홀수" ;
+ alert(n+"은(는)"+r);
+ 
+ /* 연산기호 테스트 */
+ 
+ let a=10;
+ let b=++a;
+ 
+ alert(a);
+ document.write(b);
+ 
+ /* 대입연산자 테스트 */
+ 
+ 
+ 
+ 
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="score">
+	  <select id="totSize" parameterType="String" resultType="Integer">
+      select count(serial) from score
+      where serial=#{_parameter}
+      or    id  like '%${_parameter}%'
+      or    subject like '%${_parameter}%'
+      or    score like '%${_parameter}%'
+   </select>
+	
+	<select id="select" parameterType="score.ScorePageVo" resultType="score.ScoreVo">
+	  select * from score
+	  where serial=#{findStr}
+      or    id  like '%${findStr}%'
+      or    subject like '%${findStr}%'
+      or    score like '%${findStr}%'
+	  limit #{startNo}, #{listSize}
+	</select>
+	
+	<select id="view" parameterType="String" resultType="score.ScoreVo">
+		select * from score where id = #{id} 
+	</select>
+	
+	<insert id="insert" parameterType="score.ScoreVo">
+		insert into score(id, mdate, subject, score)
+		values(#{id}, #{mdate}, #{subject}, #{score} )
+	</insert>
+	
+	<update id="update" parameterType="score.ScoreVo">
+		update score set mdate=#{mdate}, subject=#{subject}, score=#{score} where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from score where id=#{_parameter}
+	</delete>
+</mapper>

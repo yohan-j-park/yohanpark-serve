@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>func_searchid.html</title>
+</head>
+<body>
+<form name='frm'>
+	<span>이메일</span>
+	<input type='text' name='email' size='30'/><br/>
+	<span>암호</span>
+	<input type='password' name='pwd'/>
+	<input type='button' name='btn' value='아이디확인'/>
+</form>
+<script>
+let frm = document.frm;
+frm.btn.onclick = function chk(){
+	let email = frm.email.value;
+	let pw = frm.pwd.value;
+	let id = CheckId(email, pw);
+	alert("조회하신 아이디는" + id + "입니다.");
+}
+
+function CheckId(email, pw){
+	let id = '존재하지 않는 id입니다.';
+	if(email == 'a001@korea.com' && pw == '1234'){
+		id='kkk';
+	}
+	return id;
+}
+</script>
+</body>
+</html>

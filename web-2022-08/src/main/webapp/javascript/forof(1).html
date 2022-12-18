@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>forof(1)</title>
+</head>
+<body>
+<h3>for~of 와 for~in의 차이</h3>
+<form name='frm'>
+	<label><input type='checkbox' name='hobby' value='a'/>가</label>
+	<label><input type='checkbox' name='hobby' value='b'/>나</label>
+	<label><input type='checkbox' name='hobby' value='c'/>다</label>
+	<label><input type='checkbox' name='hobby' value='d'/>라</label>
+	<label><input type='checkbox' name='hobby' value='e'/>마</label>
+	<br/>
+	<input type='button' value='for of' onclick='run()'/>
+	<input type='button' value='for in' onclick='run2()'/>
+</form>
+<div id='result'></div>
+<script>
+	let frm = document.frm;  // document에서 name이 frm인 것
+	let result = document.querySelector('#result');
+	function run(){
+		let h = frm.hobby;
+		let str = '<ul>';
+		for(v of h){  // v는 <input/>자체를 의미
+			if( v.checked ){
+			str += '<li>' + v.value + '</li>';				
+		}
+	}
+		str += '</ul>';
+		result.innerHTML = str;
+	}
+	function run2(){
+		let h = frm.hobby;
+		let str = '<ul>';
+		for(v in h){ // v는 index값이 된다
+			if(h[v].checked){
+				str += '<li>' +h[v].value + '</li>';
+			}
+		}
+		str += '</ul>';
+		result.innerHTML = str;
+		
+	}
+</script>
+</body>
+</html>

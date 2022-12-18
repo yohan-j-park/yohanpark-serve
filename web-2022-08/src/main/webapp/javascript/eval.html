@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>eval.html</title>
+<style>
+#oper, #result{
+	width:300px;
+}
+</style>
+</head>
+<body>
+<p>계산식을 input태그로 입력하고 그 계산 결과를 textarea태그에 출력</p>
+<input type='text' size='40' id='oper'/>
+<input type='button' value='계산' id='btn'/><br/>
+<textarea id='result' cols='40' rows='10'></textarea>
+<script>
+let btn = document.querySelector('#btn');
+btn.onclick = function(){
+	let oper = document.querySelector('#oper').value;
+	let result = document. querySelector('#result');
+	result.value = "안녕하세요. \n줄바뀜... \n"; // textarea는 innerHTML을 쓰지 않는다, textarea에서 줄바뀜은 \이다.
+	result.value += eval(oper);
+}
+</script>
+</body>
+</html>

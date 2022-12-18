@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>forEach(1).html</title>
+</head>
+<body>
+<script>
+let ary=[1,2,3,4,5,6,7,8,9,10];
+console.log('for of.....');
+for(x of ary){
+	console.log(x);
+}
+console.log('for in.....');
+for(x in ary){
+	console.log(x, ary[x]);
+}
+console.log('forEach.....');
+ary.forEach(function(nowValue, index, me){
+	console.log(nowValue, index, me);
+}
+);
+
+console.log('화살표 함수 사용');
+ary.forEach( (nowValue, index, me)=>{
+	console.log(nowValue, index, me);
+})
+</script>
+</body>
+</html>

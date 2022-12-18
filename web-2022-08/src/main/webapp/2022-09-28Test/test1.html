@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test(1).html</title>
+</head>
+<body>
+<fieldset>빅 데이터 분석 결과 시각화
+<form id="frm">
+	<progress id='pro1' max='10' value = '' ></progress>44: 2<br/>
+	<progress id='pro2' max='10' value = ''></progress>55: 2<br/>
+	<progress id='pro3' max='10' value = ''></progress>66: 2<br/>
+	<progress id='pro4' max='10' value = ''></progress>77: 4<br/>
+	<progress id='pro5' max='10' value = ''></progress>88: 5<br/>
+	<progress id='pro6' max='10' value = ''></progress>99: 3
+</form>
+ </fieldset>
+<script>
+let frm = document.querySelector('#frm');
+
+let data = [44,55,66,77,88,99,88,77,88,99,44,55,77,88,77,99,88,66];
+let reduce = data.reduce(function (cur, now){
+	cur[now] = ++cur[now] || 1;
+	
+	return cur;
+	
+} ,{})
+console.log(Object.keys(reduce)[0]);
+console.log(Object.keys(reduce));
+let reducedata = JSON.stringify(reduce);
+document.write(reducedata);
+let jsondata = eval('(' + reducedata + ')');
+
+
+
+/*
+/let progress1 = document.querySelector('#pro1');
+let progress2 = document.querySelector('#pro2');
+let progress3 = document.querySelector('#pro3');
+let progress4 = document.querySelector('#pro4');
+let progress5 = document.querySelector('#pro5');
+let progress6 = document.querySelector('#pro6');
+
+progress1.value= jsondata['44'];
+progress2.value= jsondata['55'];
+progress3.value= jsondata['66'];
+progress4.value= jsondata['77'];
+progress5.value= jsondata['88'];
+progress6.value= jsondata['99'];
+
+*/
+</script>
+
+
+</body>
+</html>

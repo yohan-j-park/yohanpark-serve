@@ -1,0 +1,60 @@
+@charset "UTF-8";
+body{
+	background-color:#ffffff;
+}
+div#abc{
+	border     :1px solid #000000;
+	padding    :20px;
+	width      :1300px;
+	height     :1300px;
+	margin     :20px auto;
+	box-sizing :border-box;
+}
+div#login{
+	border	:1px solid #000000;
+	padding	:20px;
+	width	:1200px;
+	height	:200px;
+	margin	:20px auto;
+	box-sizing:border-box;
+	
+}
+div#logo{
+	border	:1px solid #000000;
+	padding	:20px;
+	width	:1200px;
+	height	:200px;
+	margin	:20px auto;
+	box-sizing:border-box;
+	background-color:#eee;
+	
+}
+div#main{
+	border	:1px solid #000000;
+	padding	:20px;
+	width	:1200px;
+	height	:500px;
+	margin	:20px auto;
+	box-sizing:border-box;
+	
+}
+div#footer{
+	border	:1px solid #000000;
+	padding	:20px;
+	width	:1200px;
+	height	:200px;
+	margin	:20px auto;
+	box-sizing:border-box;
+	background-color:#eee;
+	
+}
+div#nav{
+	border	:1px solid #000000;
+	padding	:20px;
+	width	:500px;
+	height	:50px;
+	margin	:10px auto;
+	box-sizing:border-box;
+	background-color:#0fe;	
+	
+}

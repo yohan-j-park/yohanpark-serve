@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>func_login.html</title>
+</head>
+<body>
+<h2>LOGIN</h2>
+<form name='frm_login'>
+	<span>아이디</span>
+	<input type='text' name='id' value='a001'/><br/>
+	<span>암호</span>
+	<input type='password' name='pwd'/><br/>
+	<input type='button' value='LOGIN' onclick = 'check()'/>
+	<output name = 'output'></output>
+</form>
+<script>
+function Login(id,pw){
+	if (id=='a001' && pw=='1111'){
+	r = "PASS";
+	}
+	else{
+	r = "FAIL";
+	}
+	return r;
+}
+function check(){
+	let frm = document.frm_login;
+	let id  = frm.id.value;
+	let pw  = frm.pwd.value;
+	
+	let a = Login(id,pw);
+	frm.output.innerHTML = a;
+}
+</script>
+
+</body>
+</html>

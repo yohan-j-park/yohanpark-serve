@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for.in html</title>
+</head>
+<body>
+<input type='button' value='VIEW' onclick="abc()"/>
+<input type='button' value='EXAM' onclick="exam()"/>
+<div id='result'></div>
+<script>
+function abc(){
+	let obj=['강아지','망아지','송아지','고양이']; 
+	let str=" ";
+	for(var x in obj ){
+		console.log(obj[x]);
+		str += obj[x] + ' ';
+	}
+	console.log(str);
+	/*alert(obj[x]);*/  //(obj[n])강아지:0 망아지:1 송아지:2 고양이:3
+}
+function exam(){
+	let obj=[1,2,3,4,5,6,7,8,9,10];
+	for(x in obj){
+		if(obj[x]%2!=0){
+			console.log(obj[x]);
+		}
+	}
+	// 배열 obj의 값 중 짝수만 result에 출력하시오
+}
+</script>
+</body>
+</html>

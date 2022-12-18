@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_forEach.html</title>
+</head>
+<body>
+<div id='result'></div>
+<script>
+let rst = document.getElementById('result');
+// for in, for of, forEach(E는 대문자)
+let ary = ['가','나','다','라']
+let str = ' ';
+ary.forEach(function(value, index, ary){
+	str += `index=${index} : ${value} <br/>`; 
+	// ` ` 안에 여러가지의 문자열을 +기호 없이 쓸 수 있도록 해줌
+}); 							 
+rst.innerHTML = str;
+</script>
+</body>
+</html>

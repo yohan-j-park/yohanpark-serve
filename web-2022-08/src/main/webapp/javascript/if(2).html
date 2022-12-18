@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>if(2).html</title>
+</head>
+<body>
+<fieldset>
+<legend><p>몸무게가 150이하이고, 키가 200이하이면 "탑승가능", 그렇지 않으면 "탑승불가"를 출력하시오
+</p></legend>
+<span>몸무게</span>
+<input type='text' id='weight' value='73'/> <!-- w.type='text' / w.value='50' -->
+<br/>
+<span>키</span>
+<input type='text' id='height' value='178'/>
+<br/>
+<input type='button' value='결과' id='btn'/>
+</fieldset>
+
+
+<script>
+let w = document.querySelector('#weight');
+let h = document.querySelector('#height');
+let btn = document.querySelector('#btn');
+btn.onclick=function(){
+	console.log('버튼이 클릭되었습니다');
+	console.log('몸무게:', w.value);
+	console.log('키:', h.value);
+	if( (w.value<=150) && (h.value<=200) ){
+		alert('탑승가능');
+	}else{
+		alert('탑승불가');
+	} 
+}
+</script>
+</body>
+</html>

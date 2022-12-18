@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>switch1.html</title>
+<style>
+#result{
+	border:3px solid #aaa;
+	padding:10px;
+	width:300px;
+}
+</style>
+</head>
+<body>
+<div id='result'></div>
+<input type='text' id='input'/>
+
+<script>
+let a=123456789;
+let str="";
+let result = document.getElementById('result');
+let input = document.querySelector('#input');
+switch(a){
+	case 8 : str="팔" ; break;
+	case 9 : str="구" ; break;
+	case 10 : str="십"; break;
+	default: str="8~10 사이가 아님"; break;
+}
+alert(str);
+result.innerHTML = str;
+document.write('<br/>'+str);
+console.log(str);
+input.value=str;
+
+/* 출력문의 종류
+*/
+</script>
+</body>
+</html>

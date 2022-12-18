@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>web_worker_main.html</title>
+</head>
+<body>
+
+<script>
+let worker1 = new Worker('web_worker1.js');
+let worker2 = new Worker('web_worker2.js');
+let worker3 = new Worker('web_worker3.js');
+
+
+worker1.onmessage = function(ev){		//onmessage: 메세지가 들어오면..
+	console.log('worker1=', ev.data);
+}
+
+worker2.onmessage = function(ev){
+	console.log('worker2=', ev.data);
+}
+
+worker3.onmessage = function(ev){
+	console.log('worker3=',ev.data)
+}
+// 멀티스레드의 처리 결과는 1,2,3 시작 순서와 상관 없이 동시에 처리하여 먼저 끝난 것 부터 결과를 출력한다.
+
+</script>
+</body>
+</html>

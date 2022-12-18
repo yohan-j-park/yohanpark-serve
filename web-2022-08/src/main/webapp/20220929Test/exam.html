@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exam.html</title>
+<link rel='stylesheet' href='exam.css'>
+</head>
+<body>
+	<div class='cover'>
+		<form name= 'frm' method='post'>
+			<h2>정보 입력</h2>
+			<p>(*표시는 필수 입력 사항입니다.)</p> <br/>
+			<span>*아이디</span>
+				<input type='text' name='id' size='30'
+					   maxlength='20' placeholder='영어 및 숫자만 입력 가능합니다.'
+					   required/> <br/>   
+			<span>*암 호</span>
+				<input type='password' name='pwd' size='20'
+					   maxlength='20' placeholder='암호를 입력해 주세요'
+					   required/> <br/>
+			<span>성 별</span>
+				<label><input type='radio' name='gender' value='m' checked/>남자</label>
+				<label><input type='radio' name='gender' value='f'/>여자</label> <br/>
+			<span>취 미</span>
+				<label><input type='checkbox' name='hobby' value='축구'>축구</label>
+				<label><input type='checkbox' name='hobby' value='배구'>배구</label>
+				<label><input type='checkbox' name='hobby' value='농구'>농구</label>
+				<label><input type='checkbox' name='hobby' value='탁구'>탁구</label> <br/>
+			<span></span>
+				<input type='submit' name='ok'   value='확인'/>
+				<input type='reset' name='reset' value='초기화'/>
+		</form>
+	</div>
+<script>
+let frm = document.frm;
+frm.ok.onclick = function(){
+	let check = document.querySelectorAll("input[name='hobby']:checked").length;
+	if(check == 0){
+		alert('취미를 하나 이상 선택해 주세요');
+		return false;
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Testreview2.html</title>
+</head>
+<body>
+<h2>도시 별 인구 수</h2>
+<div id='result'></div>
+<script>
+let data = [
+{'city':'부산', 'gender' : 'm', 'age' : 25},
+{'city':'동해', 'gender' : 'm', 'age' : 35},
+{'city':'제주', 'gender' : 'm', 'age' : 45},
+{'city':'독도', 'gender' : 'm', 'age' : 25},
+{'city':'대전', 'gender' : 'm', 'age' : 35},
+{'city':'울산', 'gender' : 'f', 'age' : 45},
+{'city':'독도', 'gender' : 'f', 'age' : 25},
+{'city':'제주', 'gender' : 'f', 'age' : 35},
+{'city':'독도', 'gender' : 'f', 'age' : 45},
+{'city':'제주', 'gender' : 'f', 'age' : 25}
+];
+let group=[];
+let result = document.querySelector('#result');
+let str='';
+for(d of data){
+	//group 배열에 d에 있는 city가 존재하는가
+	let index = group.findIndex(obj=>obj.city==d.city);
+	// group이라는 배열에 있는 index값을 obj라는 변수에 담아서
+	if(index >= 0){
+		group[index].cnt++;
+	}else{
+		group.push({'city':d.city,'cnt':1});
+	}
+}
+for(g of group){
+	str = `<li style='list-style:none;'>도시 : ${g.city} => 인구수 : ${g.cnt}`;
+	result.innerHTML += str;
+}
+</script>
+</body>
+</html>

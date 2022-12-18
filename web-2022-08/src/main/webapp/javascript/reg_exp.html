@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>reg_exp.html</title>
+</head>
+<body>
+<script>
+function msg(reg, str){
+	let b = reg.test(str);
+	let temp = `<li><b> ${reg} </b> : ${str} <font color='red'>${b}</font>`;
+	document.write(temp);
+}
+try{
+	var str1 = '123';
+	var str2 = '123abc123';
+	var str3 = 'abc';
+	var str4 = '!@#a';
+	var str5 = '가나다';
+	var str6 = 'abc123가나다';
+	var str7 = 'AbcD';
+	var str8 = 'asdfAadff';
+
+	var reg;
+	
+	//숫자가 포함되어 있는가?
+	reg = /[0-9]/;
+	msg(reg, str1);
+	msg(reg, str2);
+	msg(reg, str3);
+	msg(reg, str4);
+	msg(reg, str5);
+	msg(reg, str6);
+	msg(reg, str7);
+	msg(reg, str8);
+	document.write('<hr/>');
+				
+	//숫자만 입력되어 있는가?
+	reg = /^[0-9]+$/;
+	msg(reg, str1);
+	msg(reg, str2);
+	msg(reg, str3);
+	msg(reg, str4);
+	msg(reg, str5);
+	msg(reg, str6);
+	msg(reg, str7);
+	msg(reg, str8);
+	document.write('<hr/>');
+	
+
+	//str1~str8 까지의 값을 배열 유형으로 바꾸고, 테스트를 반복문을 사용하여 테스트 하시오.
+	
+	// 1) 숫자가 포함되어 있는가?
+	var arry = ['123','123abc123','abc','!@#a','가나다','abc123가나다','AbcD','asdfAadff'];  
+	reg = /[0-9]/;
+	for(v of arry){
+		msg(reg,v);
+	}
+	document.write('<hr/>');
+	// 2) 숫자만 포함되어 있는가?
+	reg = /^[0-9]+$/;
+	for(v of arry){
+		msg(reg,v);
+	}
+	document.write('<hr/>');
+	
+	// 3) 영문자만
+	reg = /^[a-zA-Z]+$/;
+	for(v of arry){
+		msg(reg,v);
+	}
+	document.write('<hr/>');
+	
+	// 4) 영숫자
+	reg = /^[\w]+$/;
+	for(v of arry){
+		msg(reg,v);
+	}
+	document.write('<hr/>');
+	
+	// 5) 첫 글자 대문자
+	var arry = ['123','123abc123','abc','!@#a','가나다','Abc123가나다','AbcD','asdfAadff'];
+	reg = /^[A-Z][\w]+$/;
+	for(v of arry){
+		msg(reg,v);
+	}
+	document.write('<hr/>');
+	
+	// 6) 한글만
+	var arry = ['123','123abc123','abc','!@#a','가나다','abc123가나다','맑탉않앎꿇헕','휗힣힣'];
+	reg = /[ㄱ-힣]+$/;
+	for(v of arry){
+		msg(reg,v);
+	}
+	document.write('<hr/>');
+	
+	// 7) 연락처
+	reg = /\d{2,3}-\d{3,4}-\d{4}/;
+	var arry = ['02-123-1234','032-557-557','019-11-1111','010-123-123','010-1234-5678','017-2345-678'];
+	for(v of arry){
+		msg(reg,v);
+	}
+	document.write('<hr/>');
+	
+	// 8) 이메일
+	var arry = ['zxdjz@sdfzxf.zxc','zz@z.z','fjsdklfjsdklfjhzsdklf123jzsldfjslk@sdjkfhsdjkfhsd231jkfhsdjkfh.123'];
+	reg = /^[a-zA-Z]+\w+@[a-zA-Z]+(\.[\w]+){1,2}$/;
+	//요한 regemail = /^\w{3,}@[a-z]{3,}(\.[a-z]{2,3}){1,2}$/;
+	for(v of arry){
+		msg(reg,v);
+	}
+	document.write('<hr/>');
+}catch(error){
+	alert(error);
+}
+</script>
+</body>
+</html>

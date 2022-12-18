@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function solution(n){
+	  let arr = []
+	  let answer = 0;
+	  arr = (n+'').split('');
+	  answer = Number(arr.sort().reverse().join(''));
+	  console.log(answer);
+	  console.log(arr);
+	  return answer;
+	}
+solution(89776452);
+
+
+</script>
+</body>
+</html>

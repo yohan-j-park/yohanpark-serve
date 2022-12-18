@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array2.html</title>
+</head>
+<body>
+<script>
+let name  = ['kim', 'lee', 'park', 'choi', 'hong', 'nam'];
+let phone = ['010', '011', '016', '017', '018', '019'];
+
+//1) indexOf를 사용하여 choi의 연락처를 콘솔에 출력
+let a = name.indexOf('choi');
+let b = phone[a];
+console.log('choi:',b);
+
+//강사님ver
+let index = name.indexOf('kim');
+if(index != -1){
+	console.log('찾는 연락처:', phone[index]);
+	}else{
+		console.log('찾는 연락처가 없습니다..');
+	}
+
+//2) indexOf를 사용하여 연락처가 018인 사람의 이름을 콘솔에 출력
+let c = phone.indexOf('018');
+let d = name[c];
+
+console.log(d);
+
+//강사님ver
+
+index = phone.indexOf('010');
+if(index == -1){
+	console.log('회원정보가 없습니다.')
+}else{
+	console.log('회원이름:', name[index]);
+}
+</script>
+</body>
+</html>

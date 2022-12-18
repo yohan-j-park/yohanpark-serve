@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for(1).html</title>
+<style>
+	#output{
+	background-color:lightgrey;
+	}
+</style>
+</head>
+<body>
+<div id='info'>
+	구구단을 input태그로 입력받아 output영역에 해당 구구단을 출력하시오.
+</div>	
+<input type='text' id='table' value='100'/>
+<span>단</span>
+<br/>
+<input type='button' id='btn' value='출력'/>
+<br/>
+<output id='output'></output>
+<script>
+/*for(var i=1 ; i<=10 ; i++){
+	document.write(i+'<br/>'); 
+}*/
+/*for(var i=1 ; i<=10 ; i=i+2){
+	document.write(i+' ');
+} */
+/*for(var i=10 ; i>=1 ; i--){
+	document.write(i+' ');
+} */
+let btn = document.querySelector('#btn'); 
+btn.onclick = function(){
+	let dan = Number(document.querySelector('#table').value);
+	let output = document.querySelector('#output');
+	let str='';
+	for(let i=1 ; i<10 ; i++){
+		str += (dan + " 곱하기 " + i + " 은(는)? " + (dan*i) + " 입니다." + "<br/>" );
+	}
+	output.innerHTML = str;
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>radio.html</title>
+</head>
+<body>
+<form name='frm'>
+	<span>아이디</span>
+	<input type='text' name='id'/><br/>
+	<textarea cols='40' rows='10' name='target'></textarea>
+	<br/>
+	<label><input type='radio' name='chk' value='#000'>검정</label>
+	<label><input type='radio' name='chk' value='#f00'>빨강</label>
+	<label><input type='radio' name='chk' value='#0f0'>녹색</label>
+	<label><input type='radio' name='chk' value='#00f'>파랑</label>
+	<label><input type='radio' name='chk' value='#ff0'>노랑</label>
+	<br/>
+	<input type='button' value='확인' name='btn'/>
+</form>
+<script>
+let frm = document.frm;
+// 페이지를 새로고침한 경우에도 마지막으로 선택한 색상과 버튼이 유지가 되도록
+let bg = sessionStorage.getItem('bg');
+let id = sessionStorage.getItem('id');
+if(id != null){
+	frm.id.value = id;
+}
+if(bg != null){
+	frm.target.style.backgroundColor = bg;
+	for(index in frm.chk){
+		var tag = frm.chk[index];
+		if(tag.value == bg){
+			frm.chk[index].checked = true;
+		}
+	}
+}
+
+frm.btn.addEventListener('click',function(){ // ~Listener: 어떤 장치를 연결하는 interface개념
+	for(tag of frm.chk){
+		if(tag.checked){
+			frm.target.style.backgroundColor = tag.value; //java에서 style은 -가 없다 ex)font-size(X)fontSize(O)
+			sessionStorage.setItem('bg', tag.value) // 브라우저를 종료하기 전 까지 선택한 정보를 기억 localStorage(브라우저를 껏다 켜도 맨 마지막에 선택한 정보를 기억)
+			sessionStorage.setItem('id', frm.id.value)
+			break;
+		}
+	}
+})
+</script>
+</body>
+</html>

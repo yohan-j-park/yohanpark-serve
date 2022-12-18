@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test2.html</title>
+<style>
+body{
+text-align:center;
+width:250px;
+height:200px;
+border: 4px solid  #6397be;
+box-shadow:5px 5px 5px #ddd;
+
+}
+</style>
+</head>
+<body>
+각 도시 별 인원 수 구하기
+<div id='result'></div>
+</body>
+<script>
+let data = [
+{'city':'부산', 'gender' : 'm', 'age' : 25},
+{'city':'동해', 'gender' : 'm', 'age' : 35},
+{'city':'제주', 'gender' : 'm', 'age' : 45},
+{'city':'독도', 'gender' : 'm', 'age' : 25},
+{'city':'대전', 'gender' : 'm', 'age' : 35},
+{'city':'울산', 'gender' : 'f', 'age' : 45},
+{'city':'독도', 'gender' : 'f', 'age' : 25},
+{'city':'제주', 'gender' : 'f', 'age' : 35},
+{'city':'독도', 'gender' : 'f', 'age' : 45},
+{'city':'제주', 'gender' : 'f', 'age' : 25}
+]
+console.log(Object.keys(data));
+let result = document.querySelector('#result');
+
+let datagroup = function(array,key){
+	let reduce = array.reduce(function(data,obj){
+		var k = obj[key];
+		if(!data[k]) data[k] = [];
+			data[k].push(obj);
+		return data;
+	},{});
+	return reduce;
+	
+};
+let city = datagroup(data,'city');
+
+let arr=[]; 
+ for(a of city['부산']){
+	arr.push(a);
+}
+	document.write('city :' + a.city + ' count :' + arr.length + '<br/>');
+let arr1=[];
+for(b of city['동해']){
+	arr1.push(b);
+}
+	document.write('city :' + b.city + ' count :' + arr1.length + '<br/>');
+let arr2=[];
+for(c of city['제주']){
+	arr2.push(c);
+}
+	document.write('city :' + c.city + ' count :' + arr2.length + '<br/>');
+let arr3=[];
+for(d of city['독도']){
+	arr3.push(d);
+}
+	document.write('city :' + d.city + ' count :' + arr3.length + '<br/>');
+let arr4=[];
+for(e of city['대전']){
+	arr4.push(e);
+}
+	document.write('city :' + e.city + ' count :' + arr4.length + '<br/>');
+let arr5=[];
+for(f of city['울산']){
+	arr5.push(f);
+}
+	document.write('city :' + f.city + ' count :' + arr5.length + '<br/>');
+
+
+
+
+</script>
+</html>

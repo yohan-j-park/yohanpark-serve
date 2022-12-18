@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id='getElementsByClassName'>
+	<h3>getElementsByClassName</h3>
+	<div id='info'>
+		class='alpha' 속성을 갖는 Node만을 getElmentsByClassName속성으로 선택하여
+		관련 정보를 출력함.
+	</div>
+	<div id='data'>
+		<label><input type='checkbox' value='강아지' class='alpha' checked>강아지</label>
+		<label><input type='checkbox' value='송아지' class='alpha'>송아지 </label>
+		<label><input type='checkbox' value='망아지' class='alpha' checked>망아지</label>
+		<label><input type='checkbox' value='돼야지' class='alpha'>돼야지</label>
+		<br/>
+		<label><input type='checkbox' value='컴퓨터' class='none' checked>컴퓨터</label>
+		<label><input type='checkbox' value='키보드' class='none'>키보드 </label>
+		<label><input type='checkbox' value='마우스' class='none' checked>마우스</label>
+		<label><input type='checkbox' value='모니터' class='none'>모니터</label>
+		<p/>
+		<input type='button' value='확인' onclick = 'start()' />
+		<p/>
+	</div>
+	<div id='result'></div>
+</div>
+<script>
+function start(){
+  var data = document.getElementById('data');
+  var nodes =   data.getElementsByClassName('alpha');
+  var str = "<h3>Result <\/hr><hr\/>";
+  var rs = document.getElementById('result');
+  for(i = 0 ; i<nodes.length ; i++){
+    if(nodes[i].checked){
+      str += ("<li>No = " + i + ", value = " 
+          + nodes[i].value );
+    }
+  }
+  rs.innerHTML = str;
+}
+</script>
+</body>
+</html>

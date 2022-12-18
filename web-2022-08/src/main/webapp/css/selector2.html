@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector2.html</title>
+<style>
+/* div태그 바로 뒤에 있는 ul 태그의 외곽선을 지정 */
+div+ul{
+	border:2px solid #aaa;
+}
+div~ul{
+	background-color:#eee;
+}
+div+ul>li:first-child{
+	color:#f00;	
+}    /* li태그 중에서 첫 번째인 강아지만 */
+div+ul>li:last-child{
+	color:#f00;
+}	/* li태그 중에서 마지막 요소인 얼룩말을 빨간색으로 */
+div+ul>li:nth-child(2n){
+	font-family:궁서체;/* li태그 중에서 짝수번째 요소만 궁서체로 표기 */
+}
+ul+ul>li:nth-child(2n-1){
+	background-color:#ff0;
+}
+</style>
+</head>
+<body>
+<div class='selector2'>
+	<div>DIV</div>
+	<ul>
+		<li>강아지</li>
+		<li>송아지</li>
+		<li>망아지</li>
+		<li>고양이</li>
+		<li>돼지</li>
+		<li>염소</li>
+		<li>사자</li>
+		<li>호랑이</li>
+		<li>얼룩말</li>
+	</ul>
+	<ul>
+		<li>백두산</li>
+		<li>한라산</li>
+	</ul>
+</div>
+</body>
+</html>

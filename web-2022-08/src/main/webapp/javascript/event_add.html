@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_add.html</title>
+</head>
+<body>
+<input type='button' value='INLINE' onclick='func1()'/>
+<input type='button' value='ONCLICK' id='btn'/>
+<input type='button' value='LISTENER' id='btn2'/>
+<script>
+function func1(){
+	let ev = window.event;
+	console.log(ev);
+}
+let btn=document.querySelector('#btn');
+btn.onclick = func1; // callback 함수를 지정(o)
+					 // btn.onclick = func1(); > 함수 func1의 실행결과가 대입. (x)
+					 // func1(); 과 같이 이벤트 핸들러가 없으면 호출이 되지만 이벤트핸들러가 붙으면 실행이 안됨
+let btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click',func1); // 사용 빈도수가 점점 많아짐 (<->removeEventListener)
+
+</script>
+</body>
+</html>

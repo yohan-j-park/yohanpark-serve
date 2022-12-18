@@ -1,0 +1,14 @@
+/* PC mode */
+@charset "UTF-8";
+body{
+	background-color:#ff0;
+	padding:20px;
+	width:1200px;
+	margin:20px auto;
+	box-sizing:border-box;
+}
+#main>div{
+	border:3px solid #00f;
+	padding:20px;
+	margin:3px;
+}

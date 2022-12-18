@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>object_literal(2)</title>
+</head>
+<body>
+아래의 내용으로 MyMath 리터럴을 작성하시오.
+1) max(x,y) 큰 값 리턴
+2) min(x,y) 작은 값 리턴
+3) sum(x,y) x~y까지의 합계를 계산하여 리턴
+4) even(x) x가 짝수면 true, 홀수면 false 리턴
+5) swap(x,y) x,y값을 교환
+
+
+<script>
+let MyMath = {};
+MyMath.max = function(x,y){
+	this.x = x;
+	this.y = y;
+	return(x>y ? x : y);
+}
+console.log(MyMath.max(10,20));
+
+
+console.log('---------------');
+
+MyMath.min = function(x,y){
+
+	return(x<y ? x : y);
+}
+console.log(MyMath.min(10,20));
+console.log('---------------');
+
+MyMath.sum = function(x,y){
+	let str = 0;
+	this.x = x;
+	this.y = y;
+	for(i=x; i<=y; i++){
+		str = str+i;
+	}
+		return str;
+}
+console.log(MyMath.sum(1,10));
+console.log('---------------');
+
+MyMath.even = function(x){
+	this.x = x;
+	return(x%2==0 ? true : false);
+	// return x%2==0;   강사님이 하신것
+}
+console.log(MyMath.even(1024));
+console.log(MyMath.even(1111));
+
+
+let m = {
+	max : function(x,y){ return (x>y)? x : y ;}	
+}
+
+MyMath.swap = function(x,y){
+	this.x = x;
+	this.y = y;
+	let str = '';
+	str = y;
+	y = x;
+	x = str;
+	
+	return str;
+}
+console.log(MyMath.swap(30,50)); //50
+//호출 방법 
+console.log(m.max);
+console.log(m['max']);
+
+</script>
+</body>
+</html>

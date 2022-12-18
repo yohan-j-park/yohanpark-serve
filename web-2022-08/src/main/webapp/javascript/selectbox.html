@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selectbox.html</title>
+</head>
+<body>
+<b><h3>Select를 이용하여 바탕 색상 바꾸기</h3></b><p>
+<form name='frm'>
+<input type='text' name='tt'/>
+<select name='sel' onChange='chang(this.form)'>
+	<option value='#000'>검은색
+	<option value='#006600'>녹색
+	<option value='#00ff00'>연두색
+	<option value='#f00'>빨간색
+	<option value='#fff'>흰색
+</select>
+<input type='button' value='white' onClick="mclick(this.form, this.value)"/>
+</form>
+
+<script>
+//sessionStorage에 있는 값을 가져와 초기 설정.
+let bg;
+bg = sessionStorage.getItem('bg');
+if(bg != null){
+	let ff = document.frm;
+	for(tag of ff.sel){
+		if(tag.value == bg){
+			ff.sel.value = bg;
+			ff.tt.style.backgroundColor = bg;
+		}
+	}
+}
+function mclick(ff,v){   // ff: this.form, v:this.value=white버튼
+	ff.tt.style.backgroundColor= v;
+	save('#fff')
+}
+function chang(ff){
+	let color = ff.sel.options[ff.sel.selectedIndex].value;
+	ff.tt.style.backgroundColor = color;
+	save(color);
+}
+function save(bg){
+	sessionStorage.setItem('bg', bg);
+}
+</script>
+</body>
+</html>

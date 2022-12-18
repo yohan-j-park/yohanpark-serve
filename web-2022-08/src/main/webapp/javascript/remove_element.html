@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>remeve_element.html</title>
+</head>
+<body>
+<div id='dom'>
+	<div id='del'>삭제 될 항목</div>
+	<button type='button' onclick='delDiv()'>DIV 삭제</button>
+	<br/>
+	<select id ='sel'>
+		<option value='a'>a</option>
+		<option value='b'>b</option>
+		<option value='c'>c</option>
+		<option value='d'>d</option>
+		<option value='e'>e</option>
+	</select>
+	<br/>
+	<button type='button' onclick='delOption()'>OPTION 삭제</button>
+</div>
+
+<script>
+	function delDiv(){
+		let div = document.querySelector('#del');
+		div.remove(); //삭제 될 항목이 삭제됨
+	}
+	function delOption(){
+		let sel = document.querySelector('#sel');
+		sel.removeChild(sel[4]); // e가 삭제됨
+	}
+</script>
+</body>
+</html>

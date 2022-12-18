@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 복습하기</title>
+</head>
+<body>
+
+<script>
+//substr(x,y): x번째 인덱스값부터 y개 자르기
+var str = 'abcde';
+str.substr(1,3); // bcd
+str.substr(1);	// bcde
+str.substr(-3,2); // cd
+str.substr(-2,3); // de => d부터 3개를 잘라야하는데 index가 부족해서 de만 출력됨.
+
+
+//slice(x,y): x부터 y전까지 자르기
+var str = 'abcde';
+str.slice(1,3); // bc
+str.slice(1); // bcde
+str.slice(1,-1); // bcd
+str.slice(-3,str.length); // cde
+console.log(str.slice(2,1)); // 공백
+
+var arr = [0,1,2,3,4,5];
+arr.slice(); // [0,1,2,3,4,5]
+arr.slice(1,3); // [1,2]
+
+
+// substring(x,y): x부터 y전까지 자르기, 음수 허용X(음수일 경우, 0으로 취급) x>y인경우 바꿔서 취급
+str.substring(1,3); // bc
+str.substring(1); // bcde
+str.substring(1,-1); // str.substring(1,0) -> str.substring(0,1)-> a
+str.substring(-3,str.length); // str.substring(0,5) // abcde
+
+// charAt(i): i번째 문자, 음수X
+// indexOf('a'): a가 위치한 곳의 가장 처음 인덱스값, 없으면 -1
+// lastIndexOf('a'): a가 위치한 곳의 가장 마지막 인덱스값, 없으면 -1
+var str='abcdefggfedcba';
+str.charAt(1); // 'b'
+str.indexOf('b'); // 1
+str.indexOf('z'); // -1
+str.lastIndexOf('b'); // 12
+str.lastIndexOf('z'); // -1
+
+//includes('a'): 문자 a의 존재 여부
+var str='abcdefg'
+str.includes('a'); // true
+str.includes('z'); // false
+str.includes('c',2); // true (3번째 index부터 검사)
+
+//x.concat(y): x뒤에 y 붙히기 (원본변하지않음)
+var str='abc'
+var str2='def'
+str.concat(str2); // 'abcdef'
+
+//split(a): a를 구분자로하여, [배열] 반환 / 원본 변하지 않음
+var str='abcde';
+str.split('c'); // ["ab","de"]
+str.split(""); // ["a","b","c","d","e"]
+
+//splice(x,y): x부터 y개 자르기 / 원본 변함
+var arr5=[0,1,2,3,4,5];
+arr.splice(3); // [3,4,5] (arr = [0,1,2])
+arr.splice(3,2) // [3,4] (arr = [0,1,2,5])
+arr5.splice(3,2,'a','b'); // [3,4] (arr = [0,1,2,'a','b',5])
+
+//sort(): 조건에 맞게 정렬 / 원본 변함
+/* return 1 (반환값>0) : b가 a보다 앞으로 위치
+   return -1 (반환값<0) : a가 b보다 앞으로 위치
+   return 0 : a와 b의 순서를 바꾸지 않음 */
+var s = [9,8,4,2,1];
+function mysort(x,y){
+	return -1;
+}
+console.log(s.sort(mysort)); // [1,2,4,8,9]
+
+
+
+
+
+
+</script>
+</body>
+</html>

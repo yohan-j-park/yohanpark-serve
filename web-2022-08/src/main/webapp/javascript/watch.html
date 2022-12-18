@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>watch.html</title>
+<style>
+@font-face{
+	font-family:'digital-dismay.regular';
+	src: url('../images/digital-dismay.regular.woff') format('woff');
+}
+
+fieldset{
+	width:500px;
+	height:300px;
+	border:10px solid #579368;
+	border-radius:50px;
+	background-color:#72fa92;
+	position:relative;
+}
+legend{
+	text-align:center;
+	font-size:200%;
+	font-weight:bolder;
+}
+#nal{
+	width:300px;
+	height:30px;
+	text-align:left;
+	margin-bottom:30px;
+	font-weight:bolder;
+	font-size:150%;
+	text-shadow: 0 0 10px #00c6ff;
+
+}
+#time{
+	width:100%;
+	height:150px;
+	font-weight:bolder;
+	text-align:center;
+	font-size:550%;
+	font-family:'digital-dismay.regular';
+	text-shadow: 0 0 10px #00c6ff;
+	color:fff;
+}
+
+</style>
+</head>
+<body>
+<fieldset>
+<legend>디지털 시계</legend>
+<div id='nal'></div>
+<div id='time'></div>
+</fieldset>
+<script>
+let week = ['일','월','화','수','목','금','토'];
+let nal = document.querySelector('#nal'); 
+let time = document.querySelector('#time');
+setInterval(createDate, 1000);
+
+function createDate(){
+	let now = new Date();
+	let nalStr = now.toISOString().substr(0,10);
+	nalStr += "(" + week[now.getDay()]+")";
+	nal.innerHTML = nalStr;
+	
+	let timeStr = ('0' + now.getHours()).slice(-2) + ":"
+				+ ('0' + now.getMinutes()).slice(-2) + ":"
+				+ ('0' + now.getSeconds()).slice(-2);
+				
+	time.innerHTML = timeStr;
+}
+</script>
+</body>
+</html>

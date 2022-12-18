@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>if(5).html</title>
+<style>
+p{
+	color:white;
+}
+ul{
+	border:2px solid black;
+	padding:10px;
+	height:180px;
+	background:black;
+	border-radius:10px;
+}
+ul>li{
+	margin:10px;
+	color:white;
+}
+</style>
+</head>
+<body>
+	<ul>
+		<p>
+			<b>[문 제] 구입 금액에 따른 사은품이 아래와 같이 지금되도록 프로그램 하시오.</b>
+		</p>
+		<li>만 원 이상: 비누</li>
+		<li>십만원 이상: 화장지</li>
+		<li>오십만원 이상: 어린이 자전거</li>
+		<li>백만원 이상: 성인자전거</li>
+	</ul>
+<span>구입금액</span>
+<input type='text' id='amt' value='1000000'/>
+<br/>
+<span>사은품:</span>
+<output id='gift'></output>
+<br/>
+<input type='button' id='btn' value='조회'/>
+<script>
+let amt=document.querySelector('#amt');
+let btn = document.querySelector('#btn');
+let gift = document.querySelector('#gift');
+btn.onclick=function(){
+	if(amt.value>=1000000){
+		gift.innerHTML = '성인 자전거'    
+	}
+	else if(amt.value>=500000){
+		gift.innerHTML = '어린이 자전거'
+	}
+	else if(amt.value>=100000){
+		gift.innerHTML = '화장지'
+	}
+	else if(amt.value>=10000){
+		gift.innerHTML = '비누'
+	}
+	else{
+		gift.innerHTML = '사은품 증정 요건 불충족'
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>switch2.html</title>
+</head>
+<body>
+<div id='info'>
+	성적을 입력받아 학점을 구하여 출력하시오.
+</div>
+<form name='frm'>
+	<span>성적</span>
+	<input type='text' name='score' value='88'/>
+	<br/>
+	<input type='button' value='학점구하기' name='btn'/>
+</form>
+<div id='result'></div>
+<script>
+//버튼이 클릭되면 result에 표시
+let frm = document.frm;
+frm.btn.onclick=function(){
+	let r = document.getElementById('result');
+	let s = Number(frm.score.value);
+	let grade='';
+	switch(true){
+	case s>=90 : grade = 'A'; break;
+	case s>=80 : grade = 'B'; break;
+	case s>=70 : grade = 'C'; break;
+	case s>=60 : grade = 'D'; break;
+	case s<60  : grade = 'F'; break;
+	}
+	r.innerHTML = s + ':' + grade;
+	
+	color = (s>=60)?'skyblue': '#faa';
+	r.style.backgroundColor=color;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>scope.html</title>
+</head>
+<body>
+<script>
+// 전역형 테스트
+var name='hong';
+age=19;
+
+function a(){
+	console.log('name:', name);
+	console.log('age:', age);
+	name='홍길동';
+	age=30;
+}
+a();// 함수를 호출하는 부분.
+console.log('name2:', name);
+console.log('age2:', age);
+
+
+</script>
+
+<script>
+//지역형 테스트
+
+function b(){
+	var name123='hong';
+	var age123=19;
+	console.log('name:', name123);
+	console.log('age:', age123);
+	name123='홍길동';
+	age123=30;
+}
+b();// 함수를 호출하는 부분.
+console.log('name2:', name123); /* name123값이 함수 안에서 var로 선언되었고
+								   호출하는 부분이 함수 밖에 있기 때문에 오류가 뜬다 */ 
+console.log('age2:', age123);
+
+
+</script>
+
+<script>
+// var와 let의 차이
+
+// var는 2번 이상 선언이 가능함.
+var name='hong';
+var name='kim';
+
+// let은 1번만 선언 가능함.
+
+let age='10';
+let age='20'; // age는 이미 선언되었다고 오류가 뜸
+</script>
+</body>
+</html>

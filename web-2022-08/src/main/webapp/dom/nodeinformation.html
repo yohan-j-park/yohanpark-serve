@@ -1,0 +1,47 @@
+<!-- node test ajax --------------- -->
+
+<!-- h3 태그의 개수와 이름, id 표시 -->
+<!DOCTYPE html>
+<html>
+<head>
+<title> node test </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div id='nodetest'>
+<h2>Node Information</h2>
+<p id='info'>
+태그가 h3인 Node들만을 선택하여 관련 information을 표시
+</p>
+<h3 id="p1" name="n1" style="color:#ff0000">hi</h3>
+<h3 id="p2" name="n2" style="color:#00ff00">pwg</h3>
+<h3 id="p3" name="n3" style="color:#0000ff">홧팅~</h3>
+Ajax Result
+<hr>
+<div id="result"></div>
+
+</div>
+<script>
+// 페이지가 로딩되면 자동 실행
+doc = document.documentElement;
+node = doc.getElementsByTagName("h3");
+len = node.length;
+str = "h3 tag 갯수: " + len+ " 개 \n\n";
+for(i = 0 ; i<len ; i++){
+   n = node.item(i);
+   str += `
+    <dl>
+       <td>${n.nodeName}</td>
+       <dd>node type : ${n.nodeType}</dd>
+       <dd>node name : ${n.nodeName}</dd>
+       <dd>id attr : ${n.getAttribute('id')}</dd>
+       <dd>name attr : ${n.getAttribute('name')}</dd>
+       <dd>color attr : ${n.style.color}</dd>
+       <dd>innerText : ${n.innerText} </dd>
+       </dl>
+    `;
+}
+result.innerHTML = str;
+</script>
+</body>
+</html>

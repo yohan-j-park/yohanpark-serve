@@ -1,0 +1,20 @@
+/* 세로 모드 */
+@charset "UTF-8";
+
+body{
+	background-color:#dfd;
+	margin:0;
+	padding:0;	
+}
+#main .a{
+	background-color:#fee;
+	height:150px;	
+}
+#main .b{
+	background-color:#eef;
+	height:250px;	
+}
+#main .c{
+	background-color:#efe;
+	height:10px;	
+}

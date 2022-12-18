@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>score_crud.html</title>
+<link rel='stylesheet' href='./css/score_crud.css'>
+<script defer src='./js/score_crud.js'></script>
+</head>
+<body>
+	<div id='left'>
+		<h2>성적관리 CRUD(2)</h2>
+		<form name='frm'>
+			<span>serial</span>
+			<input type='text' name='serial' value='1'/>
+			<input type='button' value='검색' name='findSerial'/>
+			<br/>
+			<span>학 번</span>
+			<input type='text' name='id' value='a001'/>
+			<br/>
+			<span>과 목</span>
+			<input type='text' name='subject' value='국어'/>
+			<br/>
+			<span>성 적</span>
+			<input type='text' name='score' value='80'/>
+			<hr/>
+			<span></span>
+			<input type='button' value='저장' name='btnSave'/>
+			<input type='button' value='수정' name='btnUpdate'/>
+			<input type='button' value='삭제' name='btnDelete'/>
+			<br/>
+			<span></span>
+			<input type='button' value='출력' name='btnOutput'/>	
+		</form>
+	</div>
+	<div id='right'>
+		<h2>성적현황 List</h2>
+		<div class='title'>
+			<span class='serial'>SERIAL</span>
+			<span class='id'>학 번</span>
+			<span class='subject'>과 목</span>
+			<span class='score'>성 적</span>
+		</div>
+		<div class='items'>
+			<div class='item'>
+			<span class='serial'></span>
+			<span class='id'></span>
+			<span class='subject'></span>
+			<span class='score'></span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

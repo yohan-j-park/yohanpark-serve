@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>json_stringify.html</title>
+</head>
+<body>
+<form name='frm' method="post">
+	<span>아이디</span>
+	<input type='text' name='id' value='a001'/><br/>
+	<span>성명</span>
+	<input type='text' name='name' value='hong'/><br/>
+	<span>성별</span>
+	<label><input type='radio' name='gender' value='m'>남자</label>
+	<label><input type='radio' name='gender' value='f'>여자</label><br/>
+	<span>취미</span>
+	<label><input type='checkbox' name='hobby' value='스포츠'>스포츠</label>
+	<label><input type='checkbox' name='hobby' value='여행'>여행</label>
+	<label><input type='checkbox' name='hobby' value='독서'>독서</label>
+	<label><input type='checkbox' name='hobby' value='명상'>명상</label>
+	<br/>
+	<input type='button' value='전송' name='btnSend'>
+</form>
+
+<script>
+const frm = document.frm; // let var const
+frm.btnSend.addEventListener('click', function(){
+	let g = (frm.gender[0].checked)? frm.gender[0].value : frm.gender[1].value;
+	let h =[];
+	for(tag of frm.hobby){
+		if(tag.checked) h.push(tag.value);
+	}
+	let json = {
+			id : frm.id.value,
+			name : frm.name.value, 
+			gender : g,
+			hobby : h 
+	}
+	
+	let data = JSON.stringify(json);
+	console.log(JSON.parse(data));
+	console.log(data);
+	console.log('json :', json);
+	console.log('stringify :', JSON.stringify(json)); // 타 언어와 교환(전송) 하기 위해선 key값과 value값이 문자열로 되어있어야 한다.
+});
+
+</script>
+</body>
+</html>

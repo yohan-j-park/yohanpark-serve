@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>object_function.html</title>
+</head>
+<body>
+이름과 연락처를 입력받아 object로 저장한 후 배열에 저장.
+<form name='frm'>
+	<span>이름</span>
+	<input type='text' name='irum' value='hong'/><br/>
+	<span>연락처</span>
+	<input type='text' name='phone' value='010-1234-5678'/><br/>
+	<input type='button' value='저장' name='btnSave'/>
+	<input type='button' value='출력' name='btnOutput'/>
+</form>
+<script>
+//한 건의 데이터를 저장하기 위한 구조
+function Data(irum,phone){
+	this.irum = irum;
+	this.phone = phone;
+	this.output = function(){
+		let str = this.irum + ":" + this.phone;
+		return str;
+	}
+}
+let m = []; // Data를 생성하여 저장.
+let frm = document.frm;
+frm.btnSave.onclick = function(){
+	let irum = frm.irum.value;
+	let phone = frm.phone.value;
+	let d = new Data(irum,phone);
+	return m.push(d);
+}
+frm.btnOutput.onclick = function(){
+	for(d of m){
+		console.log(d.output());
+	}
+}
+
+</script>
+</body>
+</html>

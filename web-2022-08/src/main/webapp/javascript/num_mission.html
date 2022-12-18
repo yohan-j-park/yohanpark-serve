@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>num_mission</title>
+<style>
+fieldset{
+	border: 3px solid black;
+	background-color: aqua; 
+}
+p{
+	border: 1px solid grey;
+	border-radius:10px;
+	background-color:lightgrey;
+	color:black;
+	font-size:25px;
+	box-shadow: 5px 5px 4px black;
+}
+</style>
+</head>
+<body>
+<fieldset>
+	<p><b>
+		수량, 단가를 입력받아 금액, 부가세10%를 계산하여 합계를 출력하시오.
+		단, 소숫점 이하는 절삭처리.(toFixed 또는 parseInt)
+	</b></p>
+	<form name='frm'>
+		<span>수량</span>
+		<input type='text' name='ea' value='10000'/><br/>
+		<span>단가</span>
+		<input type='text' name='price' value='100'/><br/>
+		<span>금액</span>
+		<output name='amt'>0</output><br/>
+		<span>부가세</span>
+		<output name='tax'>0</output><br/>
+		<span>총액</span>
+		<output name='total'>0</output><br/>
+		<input type='button' value='계산' name='btn'/>
+	</form>
+</fieldset>
+<script>
+/*
+let frm = document.frm;
+let ea = frm.ea.value;
+let price = frm.price.value;
+frm.btn.onclick = function(){	
+	let amt   = eval((ea * price).toFixed(0));
+	let tax   = eval((amt * 0.1).toFixed(0));
+	let total = amt + tax;
+	frm.amt.innerHTML   = amt + "원";
+	frm.tax.innerHTML   = tax + "원";
+	frm.total.innerHTML = amt+tax + "원";
+
+}
+*/
+
+let frm = document.frm; //form태그 전체를 frm으로 가지고 와라, fomr태그 전체가 frm에 대입된다
+frm.btn.onclick = function(){ // btn의 값을 가지고 있는 것이 클릭되면 function이라는 함수로 이동한다.
+	let ea = Number(frm.ea.value); // ea는 frm안에 있는 ea의 value값 Number을 안붙이면 value값이 문자로 인식됨
+	let price = Number(frm.price.value);   // ex) Num 안 붙일 시 88888이라는 문자로 인식되어 99999+88888 = 9999988888
+	let amt = frm.amt;
+	let tax = frm.tax;
+	let total = frm.total;
+	
+	let v = Number((ea*price/1.1).toFixed(0));
+	let t = Number( (v*0.1-0.5).toFixed(0) ); // toFixed()로 처리된 값은 문자처리가 됨. Number씌워야 숫자취급 
+	amt.value = v.toLocaleString();
+	tax.value = t.toLocaleString();
+	total.value = (v+t).toLocaleString();
+} 
+
+
+
+
+
+
+
+
+
+/* ParseInt와 toFixed 공부
+function test(){
+	let amt = 12345.6789;
+	console.log(parseInt(amt)); //12345(반올림X, 절삭)
+	console.log(parseInt(amt/10+0.5)*10);  //12350 일의자리에서 반올림
+	console.log(parseInt(amt/100+0.5)*100); // 12300
+	
+	console.log(amt.toFixed(0)); // 12346 toFixed()안의 값은 0보다 크거나 같아야한다
+	console.log(amt.toFixed(1)); // 12345.7 소숫점이하 첫째자리에서 반올림
+}
+test();
+공부 끝*/
+</script>
+</body>
+</html>

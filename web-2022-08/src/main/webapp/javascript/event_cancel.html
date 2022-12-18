@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_cancel.html</title>
+</head>
+<body>
+<form name='frm'>
+	<label for='id'>아이디</label>
+	<input type='text' name='id' id='id'/><br/>
+	<label for='pwd'>암호</label>
+	<input type='password' name='pwd' id='pwd'/><br/>
+	<button onclick='return chk()'>전송</button> <!-- button태그의 기본값은 submit임 -->
+	<button onclick='chk2()'>전송2</button>
+	<button type='button' id='btn'>전송3</button>
+</form>
+<script>
+let btn=document.querySelector('#btn');
+btn.addEventListener('click',func);
+function func(){
+	btn.removeEventListener('click',func);
+	alert('한 번만 실행됨.');
+}
+function chk(){
+	let frm = document.frm;
+	if(frm.id.value=='' || frm.pwd.value==''){
+		return false;
+	}else{
+		return true;
+	}
+}
+function chk2(){
+	let ev = window.event; // Window 객체의 event 속성은 웹 사이트의 코드가 현재 처리 중인 Event 를 반환합니다. 이벤트 처리기 바깥에서는 항상 undefined 입니다.
+	ev.preventDefault();
+}
+
+</script>
+</body>
+</html>

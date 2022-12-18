@@ -1,0 +1,31 @@
+@charset "UTF-8";
+#list{
+	width:800px;
+}
+#list>#title{
+	background-color:#444;
+	color:#fff;
+	padding:2px 30px;
+	border-radius:5px;
+	margin-left:30px;
+}
+
+#list span{
+	display:inline-block;	
+}
+#list span.id{
+	width:150px;
+}
+#list span.name{
+	width:100px;	
+}
+#list span.email{
+	width:100px;
+}
+#list span.phone{
+	width:150px;
+}
+#items{
+	padding:2px 30px;	
+}
+

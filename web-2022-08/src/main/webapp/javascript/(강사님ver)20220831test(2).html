@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+<form name='frm'>
+	<span>x</span>
+	<input type='text' name='x' value='1'/>
+	<span>y</span>
+	<input type='text' name='y' value='100'/>
+	<input type='button' value='실행' name='btn'/>
+</form>
+<script>
+let frm = document.frm;
+frm.btn.addEventListner('click',function(){
+	let x = Number(frm.x.value);
+	let y = Number(frm.y.value);
+	let n=x;
+	while(n<=y){
+		if(n%3 !=0 && n%5 !=0){
+			console.log(n);
+		}
+		n++;
+	}
+})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form name='frm'>
+<input type='button' name='btnOutput' value='눌러주세요'/>
+<input type='button' name='btn' value='dddd'/>
+
+</form>
+<script>
+
+let students = [
+	  {id:1, name:"james"},
+	  {id:2, name:"tim"},
+	  {id:3, name:"john"},
+	  {id:4, name:"brian"}
+	];
+
+	let names = students.map(function(students){
+		if(students.name=="john"){
+		return students.names;}
+		})
+		
+//	let names = students.map(student =>student.name); arrow function
+	console.log(names[0]); 
+
+
+</script>
+</body>
+</html>

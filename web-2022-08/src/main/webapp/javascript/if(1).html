@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>if(1).html</title>
+<script>
+
+/* let a=20;
+let b=30;
+let c=0;
+
+if (a>b){
+	c=a-b;
+}
+else {
+	c=a+b;
+}
+document.write("<h1>if문 처리 결과</h1>");
+document.write("<font color='red' size='6'>");
+document.write("c="+c);
+document.write("</font>"); */ 
+
+/* [응용1] 평균이 avg에 저장되어 있다.
+ 		  avg>=60이면 "pass"를 출력하고 60미만이면 Fail을 출력되도록 if문을 작성하시오.
+ */
+ 
+/*
+let x=100;
+let y=100;
+let z=100;
+let avg=(x+y+z)/3;
+
+if (avg>=60) {
+	document.write("<font color='green' size='5'>");
+	document.write("<br>시험Pass");
+	document.write("</font>");
+}
+else {
+	document.write("<font color='red' size='5'>");
+	document.write("<br>시험Fail");
+	document.write("</font>"); 
+}	
+	*/
+
+
+/* [응용2] 수량과 단가가 각각 ea, price에 저장되어 있다. 금액=수량*단가를 사용하여
+ 		  금액을 계산하고 금액이 100,000원 이상이면 "사은품 증정"을 화면에 출력하시오.
+ */
+/*
+let ea=6;
+let price=20000;
+let amount=(ea*price);
+	document.write("<font size='6'>");
+	document.write("<li>수량:" + ea);	
+	document.write("<li>단가:" + price);
+	document.write("<li>금액:" + amount);
+	document.write("</font>");
+if(amount>=100000) {
+	document.write("<font color='green' size='6'>");
+	document.write("<li>사은품 증정");
+	document.write("</font>");
+}
+else{
+	document.write("<font color='red' size='6'>");
+	document.write("<br/>사은품 증정 금액 부족");
+	document.write("</font>");
+	
+} 
+ */
+/* [응용3] 키와 몸무게가 h, w에 저장되어 있을 때 키가 200이하이고, 몸무게가 100이하일때 "탑승가능"을 출력하시오 */
+ 
+/*let h=178;
+let w=120;
+if(h<=200 && w<=100) {
+	document.write("<font color='green' size='6'>");
+	document.write("<br/>탑승가능");
+	document.write("</font>");
+}
+else {
+	document.write("<font color='red' size='6'>");
+	document.write("<br/>탑승불가");
+	document.write("</font>");
+}
+*/
+
+/* [응용4] 구역, 거리, 단가가 zone, km, price에 저장되어 있다. 거리*단가를 사용하여 금액을 계산하고,
+		  구역이 "시외"라면 금액에 할증료 10%를 추가하여 그 결과를 화면에 출력하시오 */
+/*let zone='시외';
+let km='5';
+let price='6000';
+let amount=km*price;
+if(zone=='시내'){
+	document.write("<font color='green' size='6'>");
+	document.write("금액은"+amount+"원 입니다.");
+	document.wirte("</font>");
+}
+else{
+	document.write("<font color='blue' size='6'>")
+	document.write("금액은 시외 할증 10%가 부가된"+amount*1.1+"원 입니다.");
+	document.write("</font>");
+} */
+document.write("<br/>")
+let zone;
+let km;
+let price;
+let amount;
+
+zone = prompt("시내? 시외?", "시내");
+km = prompt("주행 거리는 ?", 20);
+price = prompt("기본 단가 ?",2000);
+amt = km*price;
+tax = 0;
+tot = 0;
+
+if(zone!='시내'){
+	tax = amt*0.1;
+}
+tot=amt+tax;
+
+
+document.write('<li>zone :'+zone);
+document.write('<li>km :'+km);
+document.write('<li>price :'+price);
+document.write('<li>amt :'+amt);
+document.write('<li>tax :'+tax);
+document.write('<li>tot :'+tot);
+
+	  
+</script>
+</head>
+<body>
+
+</body>
+</html>

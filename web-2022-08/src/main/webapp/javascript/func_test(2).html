@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>func_test(2).html</title>
+</head>
+<body>
+<div>
+3개의 점수가 각각 kor, eng, his 변수에 저장되어 있다. 이 세 개의 변수를
+매개변수로 전달하여 평균을 구한 값을 반환하여 console에 출력하시오.
+(함수명:MyAvg)
+</div>
+<script>
+let kor = 93;
+let eng = 87;
+let his = 83;
+
+/*
+let k = MyAvg(kor,eng,his);
+console.log('평균:',k.toFixed(2));
+
+function MyAvg(a,b,c){
+	return(a+b+c)/3.0;
+}
+*/
+
+
+
+
+function MyAvg(x,y,z){
+	let a = kor+eng+his;
+	let b = a/3;
+	return b;
+}
+console.log(MyAvg(kor,eng,his).toFixed(0));
+
+</script>
+</body>
+</html>

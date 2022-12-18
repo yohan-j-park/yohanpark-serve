@@ -1,0 +1,82 @@
+@charset "UTF-8";
+body{
+	margin:0;
+	padding:0;
+	box-sizing:border-box; /*padding을 주더라도 전체 사이즈는 변하지 않게 하기 위함*/
+}
+main{
+	width:800px;
+	min-height:400px;
+	margin:30px auto;
+	border:3px outset #aaa;
+	padding:20px;
+	border-radius:15px;
+	box-shadow:3px 3px 5px #999;
+	background-color:white;
+	position:relative;
+	overflow:auto;
+}
+main>.main_title{
+	font-size:30pt;
+	font-weight:bolder;
+	text-align:center;
+}
+main>form{
+	width:320px;
+	float:left;
+	border:1px solid #aaa;
+	background-color:gray;
+	border-radius:10px;
+	margin:10px;
+	padding:10px;
+}
+form>span{
+	display:inline-block;
+	width:100px;
+	text-align:center;
+	margin-left:10px;
+	font-family:sans-serif;
+	font-weight:bold;
+}
+form>input[name=stdid]{width:180px;}
+form>input[name=subject]{width:180px;}
+form>input[name=grade]{width:180px;}
+
+
+#list{
+	float:right;
+	width:400px;
+}
+#list>#title{
+	background-color:black;
+	color:white;
+	padding:2px 30px;
+	border-radius:5px;
+}
+#list span{
+	display:inline-block;
+	}
+#list span.stdid{
+	width:120px;
+	text-align:left;
+}
+#list span.subject{width:80px;}
+#list span.grade{width:80px;}
+
+#items{
+	padding:2px 20px;
+	margin-left:20px;
+}
+#items>div:last-child{
+	border-bottom:2px dotted #aaa;
+}
+
+#items>.item:hover{
+	background-color:#ddd;
+	cursor:pointer;
+}
+#result{
+	font-size:200%;
+	text-align:center;
+	background-color:skyblue;
+}

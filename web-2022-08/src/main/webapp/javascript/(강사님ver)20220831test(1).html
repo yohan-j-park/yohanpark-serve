@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>(강사님ver)20220831test(1).html</title>
+<style>
+
+</style>
+</head>
+<body>
+<div id='title'>
+	<span>이름</span>
+	<span>아이디</span>
+	<span>연락처</span>
+	<span>이메일</span>
+</div>
+<div id='result'>
+	<div class='item'>
+		<span>기</span>
+		<span>본</span>
+		<span>형</span>
+		<span>식</span>
+	</div>
+</div>
+<script>
+let array = [
+	{ 'name': 'hong1', 'id' : 'a001', 'phone' : '1234', 'email' : 'a001@abc.kr'},
+	{ 'name': 'hong2', 'id' : 'a002', 'phone' : '1235', 'email' : 'a002@abc.kr'},
+	{ 'name': 'hong3', 'id' : 'a003', 'phone' : '1236', 'email' : 'a003@abc.kr'},
+	{ 'name': 'hong4', 'id' : 'a004', 'phone' : '1237', 'email' : 'a004@abc.kr'},
+];
+
+let r = document.querySelector('#result');
+
+for(x of array){
+	temp = 
+		`<div class='item'>
+			<span>${x.name}</span>
+			<span>${x.id}</span>
+			<span>${x.phone}</span>
+			<span>${x.email}</span>
+		</div>`;
+		
+	r.innerHTML += temp;
+}
+
+
+</script>
+</body>
+</html>
+

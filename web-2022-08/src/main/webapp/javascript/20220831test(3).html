@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>20220831test(3).html</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+h2{
+	text-align:center;
+}
+#member_research{
+	width:350px;
+	min-height:150px;
+	margin:30px auto;
+	border:3px solid #aaa;
+	border-radius:10px;
+}
+form span{
+	display:inline-block;
+	width:60px;
+	text-align:right;
+}
+form>input{
+	text-align:left;
+}
+.btn{
+	margin-top:5px;
+	
+}
+.result{
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<div id=member_research>
+	<h2>LOGIN</h2>
+	<form name='frm_login'>
+		<span>아이디:</span>
+		<input type='text' name='id' value='' placeholder='아이디를 입력하세요'/><br/>
+		<span>암 호:</span>
+		<input type='password' name='pwd' placeholder='암호를 입력하세요'/><br/>
+		<div class='btn'>
+			<span></span>
+			<input type='button' value='LOGIN' onclick = 'check()'/>
+		</div>
+		<div class='result'>
+			<output name='output'></output>
+		</div>
+	</form>
+</div>
+<script>
+function Login(id,pw){
+	if (id=='kim' && pw=='1111'){
+	r = "PASS";
+	}
+	else{
+	r = "FAIL";
+	}
+	return r;
+}
+    function check(){
+	let frm = document.frm_login;
+	let id  = frm.id.value;
+	let pw  = frm.pwd.value;	
+	let a = Login(id,pw);
+	frm.output.innerHTML = a;
+}
+</script>
+
+</body>
+</html>

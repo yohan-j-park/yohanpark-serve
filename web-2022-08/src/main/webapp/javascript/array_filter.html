@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_filter.html</title>
+</head>
+<body>
+<script>
+let scores = [
+	{'name' : 'hong', 'score' : 90, 'phone' : '010'}, // ''없이 01x쓰면 8진수
+	{'name' : 'kim',  'score' : 70, 'phone' : '010'}, // ''없이 0xy쓰면 16진수
+	{'name' : 'lee',  'score' : 50, 'phone' : '017'},
+	{'name' : 'park', 'score' : 40, 'phone' : '018'},
+	{'name' : 'choi', 'score' : 10, 'phone' : '019'}
+]
+// for of
+for(v of scores){
+	console.log(v.name, v.score, v.phone);
+}
+// for Each
+scores.forEach(function(v, index){
+	console.log(index, v.name, v.score, v.phone);
+})
+
+
+//filter를 사용하여 조건에 맞는 자료를 모아 새로운 배열 생성
+let passArray = scores.filter(function(v){
+	if(v.score>=60) return true;
+	else return false;
+})
+console.log(passArray);
+
+//filter를 사용하여 불합격자 명단을 모아 새로운 배열을 만들고 출력
+let failArray = scores.filter(function(맑탉않앎꿇헕){
+	let flag=false;
+	if(맑탉않앎꿇헕.score<60) flag=true; //true: 불합격자
+	return flag; // return값을 하나로 줄이기 위함
+})
+console.log('fail:',failArray);
+
+//filter를 사용하여 연락처가 010인 배열을 모아 새로운 배열을 만들어 출력 
+
+let phoneArray = scores.filter(function(아무거나써도됨){
+	let a = false;
+	if(아무거나써도됨.phone=='010') a=true;
+	return a;
+})
+console.log('phone:010',phoneArray);
+
+
+</script>
+</body>
+</html>

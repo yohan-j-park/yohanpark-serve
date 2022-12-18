@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>forin(2)</title>
+</head>
+<body>
+<h2>태그명을 입력하세요</h2>
+<input type='text' id='tag' value='form'/>
+<input type='button' id='btn' value='실행' onclick='func()'/>
+<div id='result'></div>
+<script>
+function func(){
+	let result = document.querySelector('#result');
+	let tag = document.querySelector('#tag');
+	let obj = document.createElement(tag.value);
+	let str = '<table border="1"><tr><th>Attribute</th><th>Value</th></tr>';
+	for(x in obj){
+		str += '<tr>'
+			+	  '<td>' +    x   + '</td>'
+			+	  '<td>' + obj[x] + '</td>'
+			+  '</tr>';
+	}
+	
+	str += '</table>';
+	result.innerHTML = str;
+}
+</script>
+</body>
+</html>

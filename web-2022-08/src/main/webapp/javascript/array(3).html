@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array(3).html</title>
+</head>
+<body>
+<form name ='frm'>
+	<span>성명</span>
+	<input type='text' name='findstr'/>
+	<input type='button' name='btn' value='검색'/><br/>
+	<span>연락처</span>
+	<output name='output'></output>
+</form>
+<script>
+// nam씨의 연락처는?
+let m = [
+	['kim', '010'],
+	['lee', '011'],
+	['nam', '017'],
+	['han', '019']
+];
+function Find(n){
+	let phone='찾는 연락처가 없습니다.';
+	for(let r=0; r<m.length; r++){
+		if(m[r][0] == n){
+		phone = m[r][1];	
+		}
+	}
+	return phone;
+}
+
+let frm = document.frm;
+frm.btn.onclick = function(){
+	let name = frm.findstr.value;
+	let phone = Find(name);
+	let output = frm.output;
+	output.innerHTML = phone;
+}
+// 이름과 연락처를 2차원 배열에 저장한 뒤 이름으로 연락처를 검색
+
+/*
+let m = [
+	['kim', '010'],
+	['lee', '011'],
+	['nam', '017'],
+	['han', '019']
+];
+console.log(m[0][0]); // kim
+console.log(m[0][1]); // 010
+console.log(m[0]);
+console.log(m);*/
+
+//nam씨의 연락처를 찾는 코딩
+/*
+let phone= '찾는 연락처가 없습니다.';
+for(let r=0; r<m.length; r++ ){
+	if(m[r][0] == 'han'){
+		phone = m[r][1];
+	}	
+}
+console.log('연락처:',phone);
+*/
+</script>
+
+</body>
+</html>
