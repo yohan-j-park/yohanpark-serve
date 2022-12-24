@@ -14,6 +14,7 @@ public class PageVo {
     int sno;
     String findStr;
     
+    public PageVo(){}
     
     public void pageCompute() {
         // 전체 건수를 사용하여 전체 페이지수 계산

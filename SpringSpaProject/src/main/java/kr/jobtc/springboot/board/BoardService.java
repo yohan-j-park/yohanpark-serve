@@ -18,36 +18,118 @@ public class BoardService {
 	@Autowired
 	BoardMapper mapper;
 	Object savePoint;
-	
+
 	@Autowired
 	PlatformTransactionManager manager;
 	TransactionStatus status;
 
-	
-	
+	public BoardService() {
+	}
+
 	public boolean insertR(BoardVo bVo) {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		savePoint = status.createSavepoint();
 		int cnt = mapper.insertR(bVo);
 		boolean flag = true;
-		if(cnt < 1) {
+		if (cnt < 1) {
 			status.rollbackToSavepoint(savePoint);
-			flag=false;
-		}
+			flag = false;
+		} 
+//		else if (bVo.getAttList().size() > 0) {
+//			System.out.println("attSize : " + bVo.getAttList().size());
+//			int attCnt = mapper.insertAttList(bVo.getAttList());
+//			if (attCnt < 0) flag = false;
+//			manager.commit(status);
+//		} 
+//		else {
+//			manager.commit(status);
+//			String[] delFile = new String[bVo.getAttList().size()];
+//			for (int i = 0; i < bVo.getAttList().size(); i++) {
+//				delFile[i] = bVo.getAttList().get(i).getSysFile();
+//			}
+//			fileDelete(delFile);
+//		}
 		return flag;
 	}
-	
+
 	public void insertAttList(List<AttVo> attList) {
 		int cnt = mapper.insertAttList(attList);
-		if(cnt>0) {
+		if (cnt > 0) {
 			manager.commit(status);
-			
-		}else {
+
+		} else {
 			status.rollbackToSavepoint(savePoint);
 		}
 	}
-	
-	
+
+	public boolean updateR(BoardVo bVo, String[] delFile) {
+		System.out.println("service.update");
+		System.out.println(bVo.getSno());
+		System.out.println(bVo.getSubject());
+
+		boolean b = true;
+
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		savePoint = status.createSavepoint();
+		int cnt = mapper.update(bVo); // 내용 업데이트
+		if (cnt < 1) {
+			b = false;
+		} else if (bVo.getAttList().size() > 0) {
+			int attCnt = mapper.attUpdate(bVo); // 첨부파일 추가
+			if (attCnt < 1)
+				b = false;
+		}
+
+		if (b) {
+			manager.commit(status);
+			if (delFile != null && delFile.length > 0) {
+				// 첨부 파일 데이터 삭제
+				cnt = mapper.attDelete(delFile);
+				if (cnt > 0) {
+					fileDelete(delFile); // 파일 삭제
+				} else {
+					b = false;
+				}
+			}
+		} else {
+			status.rollbackToSavepoint(savePoint);
+			delFile = new String[bVo.getAttList().size()];
+			for (int i = 0; i < bVo.getAttList().size(); i++) {
+				delFile[i] = bVo.getAttList().get(i).getSysFile();
+			}
+			fileDelete(delFile);
+		}
+
+		return b;
+	}
+
+	public boolean replR(BoardVo bVo) {
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		savePoint = status.createSavepoint();
+		boolean b = true;
+		mapper.seqUp(bVo);
+		int cnt = mapper.replR(bVo); // 내용 업데이트
+		if (cnt < 1) {
+			b = false;
+		} else if (bVo.getAttList().size() > 0) {
+			int attCnt = mapper.insertAttList(bVo.getAttList());
+			if (attCnt < 0)
+				b = false;
+		}
+		if (b)
+			manager.commit(status);
+		else {
+			status.rollbackToSavepoint(savePoint);
+			String[] delFile = new String[bVo.getAttList().size()];
+			for (int i = 0; i < bVo.getAttList().size(); i++) {
+				delFile[i] = bVo.getAttList().get(i).getSysFile();
+			}
+			fileDelete(delFile);
+		}
+
+		return b;
+	}
+
 	public List<BoardVo> select(PageVo pVo) {
 		int totSize = mapper.totList(pVo);
 		pVo.setTotSize(totSize);
@@ -113,6 +195,7 @@ public class BoardService {
 					b = false;
 				}
 			}
+
 		}
 		if (b)
 			manager.commit(status);
@@ -121,62 +204,17 @@ public class BoardService {
 
 		return b;
 	}
-	
-	public boolean updateR(BoardVo bVo, String[] delFile) {
-		boolean b = true;
-		status = manager.getTransaction(new DefaultTransactionDefinition());
-		savePoint = status.createSavepoint();
-		int cnt = mapper.update(bVo);	//내용 업데이트
-		if(cnt < 1) {
-			b=false;
-		}else if(bVo.getAttList().size()>0) {
-			int attCnt = mapper.attUpdate(bVo);		//첨부파일 추가
-			if(attCnt<1) b=false;
-		}
-		
-		if(b) {
-			manager.commit(status);
-			if(delFile != null && delFile.length>0) {
-				//첨부 파일 데이터 삭제
-				cnt = mapper.attDelete(delFile);
-				if(cnt>0) {
-					fileDelete(delFile);	//파일 삭제
-				}else {
-					b=false;
-				}
-			}
-		}
-		else status.rollbackToSavepoint(savePoint);
-		
-		return b;
-	}
-	
-	public synchronized boolean replR(BoardVo bVo,List<AttVo> attList) {
-		boolean b = true;
-		status = manager.getTransaction(new DefaultTransactionDefinition());
-		savePoint = status.createSavepoint();
-		mapper.seqUp(bVo);
-		int cnt = mapper.repl(bVo);
-		if(cnt<1) b=false;
-		else if(bVo.getAttList().size()>0) {
-			int attCnt = mapper.insertAttList(attList);
-			if(attCnt<1) 
-				status.rollbackToSavepoint(savePoint);
-				b=false;
-		}
-		return b;
-	}
-	
-	public void fileDelete(String[] delFiles) {
-		for(String f : delFiles) {
+
+	public void fileDelete(String[] delFile) {
+		for (String f : delFile) {
 			File file = new File(FileUploadController.path + f);
-			if(file.exists()) file.delete();
+			if (file.exists())
+				file.delete();
 		}
 	}
-	
+
 	public PageVo getpVo() {
 		return pVo;
 	}
-
 
 }
